@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initForms();
     initMarkdownLoader();
     initGlobalCopyBtns();
+    initReferrals();
 });
 
 function initGlobalCopyBtns() {
@@ -343,4 +344,33 @@ function parseInline(text) {
 
 function escapeHtml(text) {
     return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+/* --------------------------------------------------------------------------
+   5. Referral & Hardware ID Integration
+   -------------------------------------------------------------------------- */
+function initReferrals() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const ref = urlParams.get('ref');
+    const hwid = urlParams.get('hwid');
+
+    if (ref) {
+        localStorage.setItem('cafepulse_ref', ref);
+    }
+    if (hwid) {
+        localStorage.setItem('cafepulse_hwid', hwid);
+    }
+
+    const savedRef = localStorage.getItem('cafepulse_ref') || 'NONE';
+    const savedHwid = localStorage.getItem('cafepulse_hwid') || 'WEB';
+
+    // Cari semua elemen tautan checkout DOKU
+    const dokuLinks = document.querySelectorAll('a[href^="https://pay.doku.com/"]');
+    dokuLinks.forEach(link => {
+        const baseHref = link.getAttribute('href');
+        // Jika tautan sudah memiliki query string, pertahankan dan tambahkan order_id
+        const separator = baseHref.includes('?') ? '&' : '?';
+        const newHref = `${baseHref}${separator}order_id=CP-HWID_${savedHwid}-${savedRef}`;
+        link.setAttribute('href', newHref);
+    });
 }
