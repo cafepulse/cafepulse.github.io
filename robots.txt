@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://youbellkey.github.io/cafepulse-site/sitemap.xml
+Sitemap: https://cafepulse.github.io/sitemap.xml
