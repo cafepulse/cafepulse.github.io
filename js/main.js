@@ -53,7 +53,7 @@ function initDownloadMeta() {
 
     // Only run on download page
     if (metaVer && metaDate) {
-        fetch('https://api.github.com/repos/youbellkey/CafePulse/releases/latest')
+        fetch('https://api.github.com/repos/cafepulse/CafePulse/releases/latest')
             .then(res => {
                 if (!res.ok) throw new Error('API Rate Limit or Network Error');
                 return res.json();
