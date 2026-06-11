@@ -111,7 +111,7 @@ function initForms() {
             const to      = 'cafepulse.network@gmail.com';
             const sub     = encodeURIComponent(`[CafePulse] ${subject || 'Support Inquiry'}`);
             const body    = encodeURIComponent(
-                `Name: ${name}\nEmail: ${email}\n\n${message}\n\n---\nSent from cafepulse website`
+                `Name: ${name}\nEmail: ${email}\n\n${message}\n\n---\n${(window.__i18nStrings && window.__i18nStrings.forms && window.__i18nStrings.forms.email_footer) || 'Sent from cafepulse website'}`
             );
             const mailto  = `mailto:${to}?subject=${sub}&body=${body}`;
 
@@ -120,13 +120,18 @@ function initForms() {
 
             // Friendly status message with fallbacks
             contactStatus.style.color = 'var(--color-success)';
+            const statusText = (window.__i18nStrings && window.__i18nStrings.forms && window.__i18nStrings.forms.email_status) || "Your email client has been opened. If it didn't open automatically, use these alternatives:";
+            const openGmailText = (window.__i18nStrings && window.__i18nStrings.forms && window.__i18nStrings.forms.open_gmail) || "Open in Gmail";
+            const copyEmailText = (window.__i18nStrings && window.__i18nStrings.forms && window.__i18nStrings.forms.copy_email) || "Copy Email Address";
+            const emailCopiedText = (window.__i18nStrings && window.__i18nStrings.forms && window.__i18nStrings.forms.email_copied) || "Email address copied.";
+            
             contactStatus.innerHTML = `
                 <div style="margin-top: 15px; color: var(--text-primary); text-align: center;">
-                    <p style="margin-bottom: 10px; font-weight: normal; font-size: 0.9rem;">Your email client has been opened. If it didn't open automatically, use these alternatives:</p>
+                    <p style="margin-bottom: 10px; font-weight: normal; font-size: 0.9rem;">${statusText}</p>
                     <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=${to}&su=${sub}&body=${body}" target="_blank" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Open in Gmail</a>
-                        <button type="button" class="btn btn-secondary copy-email-btn" style="padding: 0.5rem 1rem; font-size: 0.9rem;" data-email="${to}">Copy Email Address</button>
-                        <div class="copy-confirm" style="color: var(--color-success); font-size: 0.85rem; display: none; width: 100%;">Email address copied.</div>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=${to}&su=${sub}&body=${body}" target="_blank" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">${openGmailText}</a>
+                        <button type="button" class="btn btn-secondary copy-email-btn" style="padding: 0.5rem 1rem; font-size: 0.9rem;" data-email="${to}">${copyEmailText}</button>
+                        <div class="copy-confirm" style="color: var(--color-success); font-size: 0.85rem; display: none; width: 100%;">${emailCopiedText}</div>
                     </div>
                 </div>
             `;
@@ -149,20 +154,25 @@ function initForms() {
             const to   = 'cafepulse.network@gmail.com';
             const sub  = encodeURIComponent(`[CafePulse Beta] ${subject}`);
             const body = encodeURIComponent(
-                `Name: ${name}\nEmail: ${email}\n\n${message}\n\n---\nSent from CafePulse Beta program page`
+                `Name: ${name}\nEmail: ${email}\n\n${message}\n\n---\n${(window.__i18nStrings && window.__i18nStrings.forms && window.__i18nStrings.forms.email_footer) || 'Sent from CafePulse Beta program page'}`
             );
             const mailto = `mailto:${to}?subject=${sub}&body=${body}`;
 
             window.location.href = mailto;
 
             betaStatus.style.color = 'var(--color-success)';
+            const statusText = (window.__i18nStrings && window.__i18nStrings.forms && window.__i18nStrings.forms.email_status) || "Your email client has been opened. If it didn't open automatically, use these alternatives:";
+            const openGmailText = (window.__i18nStrings && window.__i18nStrings.forms && window.__i18nStrings.forms.open_gmail) || "Open in Gmail";
+            const copyEmailText = (window.__i18nStrings && window.__i18nStrings.forms && window.__i18nStrings.forms.copy_email) || "Copy Email Address";
+            const emailCopiedText = (window.__i18nStrings && window.__i18nStrings.forms && window.__i18nStrings.forms.email_copied) || "Email address copied.";
+            
             betaStatus.innerHTML = `
                 <div style="margin-top: 15px; color: var(--text-primary); text-align: center;">
-                    <p style="margin-bottom: 10px; font-weight: normal; font-size: 0.9rem;">Your email client has been opened. If it didn't open automatically, use these alternatives:</p>
+                    <p style="margin-bottom: 10px; font-weight: normal; font-size: 0.9rem;">${statusText}</p>
                     <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=${to}&su=${sub}&body=${body}" target="_blank" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Open in Gmail</a>
-                        <button type="button" class="btn btn-secondary copy-email-btn" style="padding: 0.5rem 1rem; font-size: 0.9rem;" data-email="${to}">Copy Email Address</button>
-                        <div class="copy-confirm" style="color: var(--color-success); font-size: 0.85rem; display: none; width: 100%;">Email address copied.</div>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=${to}&su=${sub}&body=${body}" target="_blank" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">${openGmailText}</a>
+                        <button type="button" class="btn btn-secondary copy-email-btn" style="padding: 0.5rem 1rem; font-size: 0.9rem;" data-email="${to}">${copyEmailText}</button>
+                        <div class="copy-confirm" style="color: var(--color-success); font-size: 0.85rem; display: none; width: 100%;">${emailCopiedText}</div>
                     </div>
                 </div>
             `;
@@ -199,7 +209,7 @@ function initMarkdownLoader() {
         const activeLink = document.getElementById(`link-${docKey}`);
         if (activeLink) activeLink.classList.add('active');
 
-        contentArea.innerHTML = '<p style="color: var(--text-secondary);">Loading official policy document...</p>';
+        contentArea.innerHTML = `<p style="color: var(--text-secondary);">${(window.__i18nStrings && window.__i18nStrings.forms && window.__i18nStrings.forms.loading_doc) || 'Loading official policy document...'}</p>`;
 
         // Fetch markdown content
         fetch(docMapping[docKey])
@@ -211,7 +221,7 @@ function initMarkdownLoader() {
                 contentArea.innerHTML = parseMarkdown(text);
             })
             .catch(err => {
-                contentArea.innerHTML = `<h2 style="color: var(--color-danger);">Document Load Failure</h2><p style="color: var(--text-secondary);">${err.message}</p>`;
+                contentArea.innerHTML = `<h2 style="color: var(--color-danger);">${(window.__i18nStrings && window.__i18nStrings.forms && window.__i18nStrings.forms.load_error) || 'Document Load Failure'}</h2><p style="color: var(--text-secondary);">${err.message}</p>`;
             });
     }
 }
@@ -738,16 +748,16 @@ function initLightbox() {
         overlay.setAttribute('aria-modal', 'true');
         overlay.setAttribute('aria-hidden', 'true');
         overlay.setAttribute('tabindex', '-1');
-        overlay.setAttribute('aria-label', 'Screenshot detail view');
+        overlay.setAttribute('aria-label', (window.__i18nStrings && window.__i18nStrings.lightbox && window.__i18nStrings.lightbox.aria_dialog) || 'Screenshot detail view');
 
         overlay.innerHTML = `
-            <button class="lightbox-close" aria-label="Close detail view">&times;</button>
-            <button class="lightbox-arrow lightbox-prev" aria-label="Previous screenshot" style="display: none;">&#10094;</button>
+            <button class="lightbox-close" aria-label="${(window.__i18nStrings && window.__i18nStrings.lightbox && window.__i18nStrings.lightbox.aria_close) || 'Close detail view'}">&times;</button>
+            <button class="lightbox-arrow lightbox-prev" aria-label="${(window.__i18nStrings && window.__i18nStrings.lightbox && window.__i18nStrings.lightbox.aria_prev) || 'Previous screenshot'}" style="display: none;">&#10094;</button>
             <div class="lightbox-content">
                 <img class="lightbox-img" src="" alt="" tabindex="0">
                 <div class="lightbox-caption"></div>
             </div>
-            <button class="lightbox-arrow lightbox-next" aria-label="Next screenshot" style="display: none;">&#10095;</button>
+            <button class="lightbox-arrow lightbox-next" aria-label="${(window.__i18nStrings && window.__i18nStrings.lightbox && window.__i18nStrings.lightbox.aria_next) || 'Next screenshot'}" style="display: none;">&#10095;</button>
         `;
         document.body.appendChild(overlay);
     }
@@ -770,7 +780,7 @@ function initLightbox() {
         const sectionHeader = img.closest('section')?.querySelector('h2')?.innerText;
         if (sectionHeader && sectionHeader.length < 50) return sectionHeader;
         // Fallback to alt text or screenshot
-        return img.getAttribute('alt') || 'Screenshot Details';
+        return img.getAttribute('alt') || (window.__i18nStrings && window.__i18nStrings.lightbox && window.__i18nStrings.lightbox.caption_fallback) || 'Screenshot Details';
     }
 
     // Helper: Update Lightbox Image Source & Caption with a smooth transition
@@ -783,7 +793,7 @@ function initLightbox() {
         
         setTimeout(() => {
             lightboxImg.src = targetImg.src;
-            lightboxImg.alt = targetImg.alt || 'Enlarged Screenshot';
+            lightboxImg.alt = targetImg.alt || (window.__i18nStrings && window.__i18nStrings.lightbox && window.__i18nStrings.lightbox.alt_fallback) || 'Enlarged Screenshot';
             caption.innerText = getCaption(targetImg);
             
             lightboxImg.onload = () => {

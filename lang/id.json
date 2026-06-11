@@ -180,5 +180,40 @@
     "s10_label": "Adegan 10 &bull; Roadmap",
     "s10_title": "Masa Depan CafePulse",
     "s10_text": "Dibangun untuk pertumbuhan jangka panjang. Kami berkomitmen untuk menambahkan fitur baru sambil tetap mempertahankan integritas kode lokal-first yang ringan dan offline."
+  },
+  "about": {
+    "hero_title": "Visi & <span>Filosofi</span> Kami",
+    "hero_subtitle": "CafePulse dibangun untuk mengembalikan kontrol, kesederhanaan, dan privasi data penuh pada operasi jaringan lokal.",
+    "s1_title": "Jebakan Cloud & Jaringan Lokal",
+    "s1_p1": "Di era ketika tools desktop semakin memaksa pengguna berpindah ke server cloud, CafePulse tetap sepenuhnya local-first. Kami percaya kredensial diagnostik jaringan, kata sandi router, pemetaan perangkat aktif, dan log penjualan voucher pelanggan Anda hanya boleh tersimpan di database lokal yang Anda kendalikan.",
+    "s1_p2": "Menghubungkan perangkat MikroTik RouterOS lokal ke server cloud menciptakan latensi yang tidak perlu, ketergantungan eksternal, dan mengekspos kata sandi infrastruktur yang sensitif. CafePulse menghilangkan perantara, beroperasi sepenuhnya di dalam domain broadcast lokal Anda.",
+    "s2_title": "Otonomi Offline-First",
+    "s2_p1": "Platform pemantauan jaringan harus se-tangguh jaringan itu sendiri. Jika koneksi internet Anda putus, alat diagnostik lokal Anda harus tetap berfungsi. CafePulse menangani operasi RouterOS yang kompleks, analisis DHCP lease, dan pemeriksaan sistem sepenuhnya secara offline.",
+    "s2_p2": "Konektivitas langsung RouterOS API memastikan eksekusi perintah berkecepatan tinggi dan pengumpulan telemetri, tersimpan dengan aman di database SQLite lokal.",
+    "s3_title": "Mesin Cetak Voucher",
+    "s3_p1": "Pembuatan voucher tidak memerlukan integrasi billing yang rumit atau gateway eksternal. CafePulse dilengkapi mesin terlokal yang mencetak hingga 500 voucher hotspot sekaligus dengan batas kecepatan dan durasi yang langsung diinjeksikan ke database RouterOS.",
+    "s3_p2": "Semua operasi diproses di dalam sandbox aplikasi lokal dan menghasilkan grid PDF siap cetak yang bersih secara instan.",
+    "s4_title": "Profil Engineering",
+    "s4_p1": "CafePulse dirancang dan dikembangkan oleh Youbellkey, seorang developer yang berfokus pada pembuatan tools jaringan responsif berkinerja tinggi untuk operator RT/RW Net lokal dan teknisi ISP.",
+    "s5_title": "Komitmen Jangka Panjang Kami",
+    "s5_p1": "Kami percaya lisensi perangkat lunak harus memberikan kepemilikan kepada Anda, bukan tagihan bulanan yang tidak ada habisnya. Fungsi offline inti CafePulse dirancang untuk berjalan tanpa batas.",
+    "s5_p2": "Roadmap kami berfokus pada perluasan diagnostik pemantauan lokal, peningkatan tata letak voucher yang dapat dicetak, dan penyediaan stabilitas mutlak untuk operasi RT/RW Net sehari-hari."
+  },
+  "lightbox": {
+    "aria_dialog": "Tampilan detail screenshot",
+    "aria_close": "Tutup tampilan detail",
+    "aria_prev": "Screenshot sebelumnya",
+    "aria_next": "Screenshot berikutnya",
+    "caption_fallback": "Detail Screenshot",
+    "alt_fallback": "Screenshot diperbesar"
+  },
+  "forms": {
+    "loading_doc": "Memuat dokumen kebijakan resmi...",
+    "load_error": "Gagal Memuat Dokumen",
+    "open_gmail": "Buka di Gmail",
+    "copy_email": "Salin Alamat Email",
+    "email_copied": "Alamat email disalin.",
+    "email_footer": "Dikirim dari website CafePulse",
+    "email_status": "Klien email Anda telah dibuka. Jika tidak terbuka secara otomatis, gunakan alternatif berikut:"
   }
 }

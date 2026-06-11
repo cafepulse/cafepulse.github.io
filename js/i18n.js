@@ -2,9 +2,29 @@
    CafePulse Internationalization (i18n) Engine — Vanilla JS
    ========================================================================== */
 
+const englishFallbackTranslations = {
+    lightbox: {
+        aria_dialog: "Screenshot detail view",
+        aria_close: "Close detail view",
+        aria_prev: "Previous screenshot",
+        aria_next: "Next screenshot",
+        caption_fallback: "Screenshot Details",
+        alt_fallback: "Enlarged Screenshot"
+    },
+    forms: {
+        loading_doc: "Loading official policy document...",
+        load_error: "Document Load Failure",
+        open_gmail: "Open in Gmail",
+        copy_email: "Copy Email Address",
+        email_copied: "Email address copied.",
+        email_status: "Your email client has been opened. If it didn't open automatically, use these alternatives:",
+        email_footer: "Sent from cafepulse website"
+    }
+};
+
 const i18nConfig = {
     defaultLang: 'en',
-    availableLangs: ['en', 'id', 'es'],
+    availableLangs: ['en', 'id', 'es', 'de', 'fr', 'ja', 'zh'],
     storageKey: 'cafepulse_lang'
 };
 
@@ -24,6 +44,7 @@ function initI18n() {
     // If active language is English (default), the page is already in English
     // No need to fetch translation JSON file, providing a fast native loading path
     if (activeLang === i18nConfig.defaultLang) {
+        window.__i18nStrings = englishFallbackTranslations;
         return;
     }
 
@@ -32,13 +53,11 @@ function initI18n() {
 }
 
 function getActiveLanguage() {
-    // 1. Check URL path (e.g., /id/ or /es/) for pre-rendered pages
+    // 1. Check URL path (e.g., /id/, /es/, /de/, /fr/, /ja/, /zh/) for pre-rendered pages
     const pathname = window.location.pathname;
-    if (pathname.includes('/id/')) {
-        return 'id';
-    }
-    if (pathname.includes('/es/')) {
-        return 'es';
+    const pathMatch = pathname.match(/^\/(id|es|de|fr|ja|zh)(\/|$)/);
+    if (pathMatch) {
+        return pathMatch[1];
     }
 
     // 2. Check URL parameters (e.g. ?lang=id)
@@ -68,7 +87,7 @@ function getActiveLanguage() {
 function loadTranslations(lang) {
     // Dynamically determine relative path prefix to the root website directory
     const pathname = window.location.pathname;
-    const isInSubdir = /^\/(id|es)(\/|$)/.test(pathname);
+    const isInSubdir = /^\/(id|es|de|fr|ja|zh)(\/|$)/.test(pathname);
     const pathPrefix = isInSubdir ? '../' : './';
     
     fetch(`${pathPrefix}lang/${lang}.json`)
@@ -77,6 +96,7 @@ function loadTranslations(lang) {
             return res.json();
         })
         .then(translations => {
+            window.__i18nStrings = translations;
             translatePage(translations);
         })
         .catch(err => {
@@ -90,7 +110,7 @@ function translatePage(translations) {
         const key = el.getAttribute('data-i18n');
         const translatedValue = getNestedValue(translations, key);
         
-        if (translatedValue) {
+        if (translatedValue !== undefined && translatedValue !== null) {
             // If the element is an input, translate its placeholder attribute
             if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
                 el.setAttribute('placeholder', translatedValue);
@@ -98,6 +118,8 @@ function translatePage(translations) {
                 // Use innerHTML to support span styling within headers/texts
                 el.innerHTML = translatedValue;
             }
+        } else {
+            console.warn(`[i18n] Missing key: "${key}" for lang: "${document.documentElement.lang}"`);
         }
     });
 
@@ -138,7 +160,7 @@ function initLanguageSelectors(activeLang) {
                 const pathname = window.location.pathname;
                 
                 // Remove existing language folder prefix (/id/ or /es/)
-                let cleanPath = pathname.replace(/^\/(id|es)\//, '/');
+                let cleanPath = pathname.replace(/^\/(id|es|de|fr|ja|zh)(\/|$)/, '/');
                 
                 // If cleanPath didn't start with / because of some relative path environment
                 if (!cleanPath.startsWith('/')) {
