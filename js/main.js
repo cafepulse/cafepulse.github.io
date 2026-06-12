@@ -379,15 +379,7 @@ function initReferrals() {
     const savedRef = localStorage.getItem('cafepulse_ref') || 'NONE';
     const savedHwid = localStorage.getItem('cafepulse_hwid') || 'WEB';
 
-    // Cari semua elemen tautan checkout DOKU
-    const dokuLinks = document.querySelectorAll('a[href^="https://pay.doku.com/"]');
-    dokuLinks.forEach(link => {
-        const baseHref = link.getAttribute('href');
-        // Jika tautan sudah memiliki query string, pertahankan dan tambahkan order_id
-        const separator = baseHref.includes('?') ? '&' : '?';
-        const newHref = `${baseHref}${separator}order_id=CP-HWID_${savedHwid}-${savedRef}`;
-        link.setAttribute('href', newHref);
-    });
+    // Checkout link handling is now dynamically managed by checkout_tracker.js with Midtrans Snap integration.
 }
 
 /* --------------------------------------------------------------------------
