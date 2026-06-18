@@ -59,6 +59,17 @@ function initDownloadMeta() {
 
     // Only run on download page
     if (metaVer && metaDate) {
+        // Intercept local testing to use local compiled builds
+        if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:") {
+            const btnWinDl = document.getElementById('btn-win-dl');
+            const btnWinPortable = document.getElementById('btn-win-portable');
+            if (btnWinDl) btnWinDl.href = "./exports/CafePulse_Free_Setup.exe";
+            if (btnWinPortable) btnWinPortable.href = "./exports/CafePulse_Free_Portable.zip";
+            metaVer.textContent = "v1.0.0-local";
+            metaDate.textContent = "Local Compile";
+            return;
+        }
+
         fetch('https://api.github.com/repos/cafepulse/CafePulse/releases/latest')
             .then(res => {
                 if (!res.ok) throw new Error('API Rate Limit or Network Error');
