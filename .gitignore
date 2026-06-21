@@ -1,0 +1,76 @@
+# =============================================================
+# .gitignore — cafepulse/cafepulse.github.io (WEBSITE ONLY)
+# Source code app Python TIDAK boleh masuk repo ini
+# =============================================================
+
+# --- App Python source code (JANGAN MASUK REPO WEBSITE) ---
+CafePulse/
+core/
+modes/
+ui/
+tools/
+tests/
+config/
+database/
+scratch/
+
+# --- Build artifacts ---
+build/
+build_output/
+dist/
+exports/
+__pycache__/
+*.pyc
+*.pyo
+*.spec
+
+# --- Database & logs ---
+*.db
+*.sqlite3
+logs/
+crash_debug.txt
+test_out.txt
+
+# --- Python env ---
+venv/
+.venv/
+env/
+*.egg-info/
+
+# --- OS files ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Editor ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- Secrets / keys ---
+*.key
+*.pem
+*.env
+.env.*
+secrets/
+
+# --- Large binary files ---
+*.exe
+*.zip
+*.msi
+*.dmg
+*.pkg
+*.deb
+
+# --- PDFs (internal docs) ---
+CafePulse_Beta_Tester_Ecosystem_Audit_Report.pdf
+CafePulse_Founder_Technical_Audit_Report.pdf
+
+# --- Internal audit docs (RAHASIA - jangan push ke repo publik) ---
+docs/internal_audits/
+docs/100_PREGENERATED_COMMERCIAL_LICENSES.md
+
+# --- Nested repos / agent folders ---
+website/
+.agent/
