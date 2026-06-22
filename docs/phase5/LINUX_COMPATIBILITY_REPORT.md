@@ -18,7 +18,7 @@ Laporan ini memetakan kesesuaian basis kode (codebase) CafePulse saat ini agar d
 | **Path Separators** | **Compatible (Safe)** | `core/app_paths.py` | Kode secara konsisten menggunakan `pathlib.Path` dan operator `/` yang bersifat cross-platform. |
 | **PowerShell Dependency** | **Compatible (Not Used)** | *None* | Aplikasi tidak bergantung pada pemanggilan `powershell.exe`. |
 | **CMD / Subprocess Commands** | **Compatible (Decoupled)** | `core/scanner/arp_scanner.py`<br>`modes/home_wifi/arp_scanner.py`<br>`core/mikrotik/router_discovery.py` | Perintah ping, ipconfig/ip, dan arp telah memiliki cabang platform Windows/Linux yang terisolasi. |
-| **Windows Shell Integration** | **Compatible (Protected)** | `Project/main.py` | Pemanggilan `AppUserModelID` dibatasi dalam blok `if sys.platform == "win32"`. |
+| **Windows Shell Integration** | **Compatible (Protected)** | `main.py` | Pemanggilan `AppUserModelID` dibatasi dalam blok `if sys.platform == "win32"`. |
 | **Startup / Auto-Start** | **Compatible (Not Used)** | *None* | Tidak ada penulisan ke folder `%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup` atau Registry Run keys di kode. |
 | **User Data Folder Layout** | **Requires Adaptation** | `core/app_paths.py` | Menggunakan fallback `Path.home() / ".cafepulse"`. Direkomendasikan mengikuti standar XDG (`~/.config/CafePulse`). |
 

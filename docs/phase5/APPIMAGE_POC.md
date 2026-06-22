@@ -59,7 +59,7 @@ Categories=Network;Utility;System;
 ```
 
 ### 3.3 Ikon Aplikasi (`cafepulse.png`)
-Salin logo PNG resolusi tinggi dari `Project/assets/branding/logo.png` ke root `AppDir/` dengan nama `cafepulse.png`.
+Salin logo PNG resolusi tinggi dari `assets/branding/logo.png` ke root `AppDir/` dengan nama `cafepulse.png`.
 
 ---
 
@@ -82,10 +82,10 @@ Di dalam GitHub Actions runner, FUSE (Filesystem in Userspace) tidak terpasang s
 ```
 
 ### Langkah 3: Asosiasikan Biner Hasil PyInstaller
-Pindahkan direktori hasil build PyInstaller dari `Project/dist/CafePulse` ke struktur `AppDir`:
+Pindahkan direktori hasil build PyInstaller dari `dist/CafePulse` ke struktur `AppDir`:
 ```bash
 mkdir -p AppDir/usr/bin
-cp -r Project/dist/CafePulse/* AppDir/usr/bin/
+cp -r dist/CafePulse/* AppDir/usr/bin/
 ```
 
 ### Langkah 4: Jalankan Kompilasi AppImage

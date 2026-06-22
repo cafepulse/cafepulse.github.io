@@ -181,6 +181,6 @@
 | `DOWNLOAD_PAGE_SPEC.md` | `docs/website/DOWNLOAD_PAGE_SPEC.md` | 2026-06-21 21:34 | 417 words | Partial | Review & Preserve |
 | `WEBSITE_AUDIT_REPORT.md` | `docs/website/WEBSITE_AUDIT_REPORT.md` | 2026-06-21 21:34 | 481 words | Partial | Review & Preserve |
 | `WEBSITE_PROPOSAL.md` | `docs/website/WEBSITE_PROPOSAL.md` | 2026-06-21 21:35 | 597 words | Complete | Review & Preserve |
-| `README.md` | `Project/README.md` | 2026-06-19 20:45 | 407 words | Partial | Review & Preserve |
-| `README_FREE.md` | `Project/README_FREE.md` | 2026-06-22 10:17 | 361 words | Partial | Review & Preserve |
-| `README_PROFESSIONAL.md` | `Project/README_PROFESSIONAL.md` | 2026-06-06 21:05 | 254 words | Partial | Review & Preserve |
+| `README.md` | `README.md` | 2026-06-19 20:45 | 407 words | Partial | Review & Preserve |
+| `README_FREE.md` | `README_FREE.md` | 2026-06-22 10:17 | 361 words | Partial | Review & Preserve |
+| `README_PROFESSIONAL.md` | `README_PROFESSIONAL.md` | 2026-06-06 21:05 | 254 words | Partial | Review & Preserve |

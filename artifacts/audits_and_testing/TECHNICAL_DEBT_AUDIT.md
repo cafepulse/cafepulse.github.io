@@ -28,7 +28,7 @@ Ketidakkonsistenan pelaporan versi akan sangat menghambat proses triase *bug* se
 ## Debt ID: TD-002
 ### Category: Architecture / UI
 ### Location: 
-- `Project/modes/*/*_worker.py`, `Project/core/mikrotik/polling_worker.py`
+- `modes/*/*_worker.py`, `core/mikrotik/polling_worker.py`
 ### Description: 
 *Thread lifecycle management* untuk proses asinkron (seperti MikroTik API polling dan *network sweep*) menggunakan PyQt6 `QThread` namun belum menerapkan mekanisme penghentian atau pelepasan memori (*teardown/cleanup*) yang aman (`quit()`, `wait()`, `terminate()`).
 ### Root Cause: 
@@ -70,7 +70,7 @@ Penambahan perintah `rmdir /s /q build dist` atau pembersihan modul yang *stale*
 ## Debt ID: TD-004
 ### Category: Architecture / Documentation
 ### Location: 
-- Tersebar di berbagai modul (`Project/core/` dan `Project/ui/`)
+- Tersebar di berbagai modul (`core/` dan `ui/`)
 ### Description: 
 Logika penulisan log ganda dan absennya standardisasi persisten (*duplicate & missing logging*). Beberapa modul menggunakan `print()`, sementara modul lainnya menggunakan `logging` Python, namun tidak disentralisasi ke dalam sistem file log yang persisten untuk *bug reporting*.
 ### Root Cause: 
@@ -91,7 +91,7 @@ Agar pengujian *Beta* efektif, sistem pelaporan kesalahan (log file) mutlak dibu
 ## Debt ID: TD-005
 ### Category: UI
 ### Location: 
-- `Project/ui/widgets/devices_page.py`, `Project/ui/widgets/sidebar.py`
+- `ui/widgets/devices_page.py`, `ui/widgets/sidebar.py`
 ### Description: 
 Komponen UI yang berukuran besar (*oversized widgets*) memikul dua beban komputasi sekaligus: mengatur tampilan (GUI) dan mengambil/mengolah data dari _Network Layer_ atau *Database*.
 ### Root Cause: 
@@ -129,7 +129,7 @@ Untuk skala *Beta Testing* (terbatas), penerbitan kunci secara manual via skrip 
 ## Debt ID: TD-007
 ### Category: Database / MikroTik
 ### Location: 
-- `Project/ui/widgets/compatibility_page.py`, Modul Jaringan Lanjutan
+- `ui/widgets/compatibility_page.py`, Modul Jaringan Lanjutan
 ### Description: 
 Beberapa fitur konfigurasi penulisan ke RouterOS (VLAN creation, Bridge management, Firewall rules) masih berbentuk struktur *mock* UI dan data *dummy*.
 ### Root Cause: 

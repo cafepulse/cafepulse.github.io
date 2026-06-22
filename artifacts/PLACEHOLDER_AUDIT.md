@@ -59,4 +59,4 @@
 | `artifacts/strategy_and_marketing/GO_TO_MARKET.md` | 55 | **TODO** | `| Produksi demo video YouTube | 📋 Todo |` |
 | `artifacts/strategy_and_marketing/GO_TO_MARKET.md` | 56 | **TODO** | `| Setup Discord server komunitas | 📋 Todo |` |
 | `docs/website/WEBSITE_AUDIT_REPORT.md` | 32 | **Coming Soon** | `- Linux masih bertanda "Coming Soon" dengan banner peringata...` |
-| `Project/README_FREE.md` | 104 | **Coming Soon** | `*(screenshots coming soon)*` |
+| `README_FREE.md` | 104 | **Coming Soon** | `*(screenshots coming soon)*` |

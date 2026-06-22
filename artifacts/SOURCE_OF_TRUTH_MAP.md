@@ -181,6 +181,6 @@
 | `DOWNLOAD_PAGE_SPEC.md` | `docs/website/DOWNLOAD_PAGE_SPEC.md` | Single Instance | - |
 | `WEBSITE_AUDIT_REPORT.md` | `docs/website/WEBSITE_AUDIT_REPORT.md` | Single Instance | - |
 | `WEBSITE_PROPOSAL.md` | `docs/website/WEBSITE_PROPOSAL.md` | Single Instance | - |
-| `README.md` | `Project/README.md` | Single Instance | - |
-| `README_FREE.md` | `Project/README_FREE.md` | Single Instance | - |
-| `README_PROFESSIONAL.md` | `Project/README_PROFESSIONAL.md` | Single Instance | - |
+| `README.md` | `README.md` | Single Instance | - |
+| `README_FREE.md` | `README_FREE.md` | Single Instance | - |
+| `README_PROFESSIONAL.md` | `README_PROFESSIONAL.md` | Single Instance | - |

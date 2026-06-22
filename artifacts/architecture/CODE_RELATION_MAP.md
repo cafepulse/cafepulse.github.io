@@ -6,7 +6,7 @@
 ## 1. STRUKTUR DIREKTORI (FOLDER TOPOLOGY)
 
 ```
-Project/
+
   ├── assets/                      # Aset grafis aplikasi (logo.svg, splash.png, icon.ico)
   ├── config/                      # Pengaturan default awal (settings_default.json)
   ├── core/                        # Modul logika inti & operasi backend aplikasi
@@ -130,20 +130,20 @@ Implementasi alur data and logika modular di CafePulse disusun sebagai berikut:
 ## 5. RISK PROFILE (CRITICAL & SAFE FILES)
 
 ### 5.1 Entry Points
-*   **Aplikasi Utama Desktop:** [Project/main.py](file:///C:/Users/USER/Documents/Yubelki/CafePulse/CafePulse/Project/main.py)
+*   **Aplikasi Utama Desktop:** [main.py](file:///C:/Users/USER/Documents/Yubelki/CafePulse/CafePulse/main.py)
 *   **Penerbitan Lisensi (Offline):** [license_generator/issue_license.py](file:///C:/Users/USER/Documents/Yubelki/CafePulse/CafePulse/license_generator/issue_license.py)
-*   **Otomasi Build PyInstaller:** [Project/build.py](file:///C:/Users/USER/Documents/Yubelki/CafePulse/CafePulse/Project/build.py)
+*   **Otomasi Build PyInstaller:** [build.py](file:///C:/Users/USER/Documents/Yubelki/CafePulse/CafePulse/build.py)
 
 ### 5.2 High Risk Files (Sangat Sensitif - Modifikasi Berpotensi Merusak Sistem)
-*   [Project/core/app_paths.py](file:///C:/Users/USER/Documents/Yubelki/CafePulse/CafePulse/Project/core/app_paths.py): Mengurusi izin filesystem dan path UAC. Kesalahan kecil dapat mencegah aplikasi booting.
-*   [Project/core/licensing/rsa_manager.py](file:///C:/Users/USER/Documents/Yubelki/CafePulse/CafePulse/Project/core/licensing/rsa_manager.py): Jantung keamanan lisensi. Modifikasi yang tidak pas dapat mengunci pengguna sah atau menyebabkan kebocoran otentikasi.
-*   [Project/core/database/db_manager.py](file:///C:/Users/USER/Documents/Yubelki/CafePulse/CafePulse/Project/core/database/db_manager.py): Kegagalan migrasi skema tabel di file ini berisiko merusak database user.
-*   [Project/core/scanner/arp_scanner.py](file:///C:/Users/USER/Documents/Yubelki/CafePulse/CafePulse/Project/core/scanner/arp_scanner.py) & [Project/modes/home_wifi/arp_scanner.py](file:///C:/Users/USER/Documents/Yubelki/CafePulse/CafePulse/Project/modes/home_wifi/arp_scanner.py): Bertanggung jawab atas pemindaian jaringan lokal. Kesalahan subprocess flag (`STARTUPINFO`) dapat memicu command window berkedip di Windows atau hang.
+*   [core/app_paths.py](file:///C:/Users/USER/Documents/Yubelki/CafePulse/CafePulse/core/app_paths.py): Mengurusi izin filesystem dan path UAC. Kesalahan kecil dapat mencegah aplikasi booting.
+*   [core/licensing/rsa_manager.py](file:///C:/Users/USER/Documents/Yubelki/CafePulse/CafePulse/core/licensing/rsa_manager.py): Jantung keamanan lisensi. Modifikasi yang tidak pas dapat mengunci pengguna sah atau menyebabkan kebocoran otentikasi.
+*   [core/database/db_manager.py](file:///C:/Users/USER/Documents/Yubelki/CafePulse/CafePulse/core/database/db_manager.py): Kegagalan migrasi skema tabel di file ini berisiko merusak database user.
+*   [core/scanner/arp_scanner.py](file:///C:/Users/USER/Documents/Yubelki/CafePulse/CafePulse/core/scanner/arp_scanner.py) & [modes/home_wifi/arp_scanner.py](file:///C:/Users/USER/Documents/Yubelki/CafePulse/CafePulse/modes/home_wifi/arp_scanner.py): Bertanggung jawab atas pemindaian jaringan lokal. Kesalahan subprocess flag (`STARTUPINFO`) dapat memicu command window berkedip di Windows atau hang.
 
 ### 5.3 Safe To Modify (Aman Dimodifikasi)
-*   [Project/ui/themes/dark_theme.py](file:///C:/Users/USER/Documents/Yubelki/CafePulse/CafePulse/Project/ui/themes/dark_theme.py) & [light_theme.py](file:///C:/Users/USER/Documents/Yubelki/CafePulse/CafePulse/Project/ui/themes/light_theme.py): Hanya mengurusi visual styling QSS.
-*   [Project/ui/widgets/dashboard_tab.py](file:///C:/Users/USER/Documents/Yubelki/CafePulse/CafePulse/Project/ui/widgets/dashboard_tab.py): Tampilan dasbor analitik. Aman untuk penyesuaian visual widget.
-*   [Project/gen_pdf.py](file:///C:/Users/USER/Documents/Yubelki/CafePulse/CafePulse/Project/gen_pdf.py) & generators sejenis: Skrip compiler laporan mandiri.
+*   [ui/themes/dark_theme.py](file:///C:/Users/USER/Documents/Yubelki/CafePulse/CafePulse/ui/themes/dark_theme.py) & [light_theme.py](file:///C:/Users/USER/Documents/Yubelki/CafePulse/CafePulse/ui/themes/light_theme.py): Hanya mengurusi visual styling QSS.
+*   [ui/widgets/dashboard_tab.py](file:///C:/Users/USER/Documents/Yubelki/CafePulse/CafePulse/ui/widgets/dashboard_tab.py): Tampilan dasbor analitik. Aman untuk penyesuaian visual widget.
+*   [gen_pdf.py](file:///C:/Users/USER/Documents/Yubelki/CafePulse/CafePulse/gen_pdf.py) & generators sejenis: Skrip compiler laporan mandiri.
 
 ---
 

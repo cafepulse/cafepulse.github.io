@@ -9,7 +9,7 @@ Dokumen ini berisi hasil audit terhadap sistem kompilasi (build system) Windows 
 Siklus kompilasi CafePulse saat ini terbagi menjadi dua alur independen:
 
 ### 1.1 Windows Build System (Lokal)
-- **Komponen:** `Project/build.py` (PyInstaller) dan `Project/build_installer.bat` (Inno Setup Compiler).
+- **Komponen:** `build.py` (PyInstaller) dan `build_installer.bat` (Inno Setup Compiler).
 - **Hasil Evaluasi:**
   - Pembersihan direktori cache (`build/`, `dist/`) berjalan dengan baik, mencegah error impor runtime `pyimod02_importers`.
   - Output berkas portable `.zip` dan setup `.exe` telah diseragamkan untuk disimpan di parent directory `exports/` secara konsisten.
@@ -29,14 +29,14 @@ Siklus kompilasi CafePulse saat ini terbagi menjadi dua alur independen:
 
 ### 2.1 Temuan Audit Codebase
 Hasil audit menunjukkan nilai versi `"1.0.0"` (atau `"1.0.0.0"`) tersebar dan ditulis secara manual (*hardcoded*) di **8 berkas berbeda**:
-1. `Project/main.py` -> `app.setApplicationVersion("1.0.0")`
-2. `Project/installer/free/CafePulse_Free_Setup.iss` -> `#define MyAppVersion "1.0.0"`
-3. `Project/installer/professional/CafePulse_Professional_Setup.iss` -> `#define MyAppVersion "1.0.0"`
-4. `Project/assets/branding/version_info.txt` -> `StringStruct(u'FileVersion', u'1.0.0.0')`
-5. `Project/config/settings_default.json` -> `"version": "1.0.0"`
-6. `Project/core/licensing/licensing_manager.py` -> `"version": "1.0.0.0"`
-7. `Project/ui/widgets/about_page.py` -> `self.version_lbl = QLabel("Version 1.0.0 ...")`
-8. `Project/ui/widgets/sidebar.py` -> `self._version_label = QLabel("v1.0.0 ...")`
+1. `main.py` -> `app.setApplicationVersion("1.0.0")`
+2. `installer/free/CafePulse_Free_Setup.iss` -> `#define MyAppVersion "1.0.0"`
+3. `installer/professional/CafePulse_Professional_Setup.iss` -> `#define MyAppVersion "1.0.0"`
+4. `assets/branding/version_info.txt` -> `StringStruct(u'FileVersion', u'1.0.0.0')`
+5. `config/settings_default.json` -> `"version": "1.0.0"`
+6. `core/licensing/licensing_manager.py` -> `"version": "1.0.0.0"`
+7. `ui/widgets/about_page.py` -> `self.version_lbl = QLabel("Version 1.0.0 ...")`
+8. `ui/widgets/sidebar.py` -> `self._version_label = QLabel("v1.0.0 ...")`
 
 ### 2.2 Risiko
 Menulis versi secara manual di banyak file meningkatkan risiko kelalaian rilis (misalnya, memperbarui versi di UI tetapi lupa memperbarui di installer `.iss` atau skrip lisensi), yang dapat mengakibatkan kegagalan validasi lisensi offline atau ketidaksesuaian informasi rilis.
@@ -48,7 +48,7 @@ Menulis versi secara manual di banyak file meningkatkan risiko kelalaian rilis (
 Untuk menerapkan standarisasi rilis, diusulkan penerapan **Single Source of Truth (SSOT) untuk Versi** pada sprint berikutnya:
 
 ### 3.1 Python Runtime Injection
-Buat berkas versi terpusat di `Project/core/__init__.py`:
+Buat berkas versi terpusat di `core/__init__.py`:
 ```python
 __version__ = "1.0.0-RC1.2"
 ```
