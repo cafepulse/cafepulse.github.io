@@ -33,6 +33,10 @@ Memastikan seorang Founder User yang belum pernah melihat CafePulse sebelumnya d
   - [x] Audit 10 Fase daur hidup Thread & Subprocess (TD-002).
   - [x] Implementasi Patch Plan (Collective Wait, hapus `terminate()`, kill zombie `ping`).
   - [x] Update Project OS (`D-017`, `D-018`).
+- [x] **P0 Critical Mission 2 (Interrupt)**
+  - [x] Finalisasi struktur direktori: Flatten `Project/` ke dalam root repository (D-019).
+  - [x] Sinkronisasi ulang bug fix (Terminal Flash & Zombie Thread) ke dalam direktori root.
+  - [x] Update `build.py` & `.github/workflows` agar mendukung root-based execution.
 
 ---
 

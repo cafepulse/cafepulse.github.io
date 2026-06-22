@@ -197,3 +197,12 @@
 *   **Decision:** Melarang secara mutlak penggunaan pemanggilan QThread.terminate() dan internal self.wait() di dalam daur hidup (*lifecycle*) worker *PyQt6*. Mengadopsi arsitektur asinkron *Collective Wait* pada Main Thread.
 *   **Reason:** Penyelesaian isu P0 TD-002 (Shutdown Zombie Process). Penggunaan worker.terminate() secara paksa membunuh OS thread, menyebabkan blok inally diabaikan, koneksi *socket* RouterOS menggantung, _database lock_ .wal SQLite terabaikan, dan subprocess (seperti *ping*) menjadi zombie. Selain itu, fungsi stop() pada _worker_ sebelumnya mengandung self.wait(5000), yang mengunci (*block*) Main Thread selama 5 detik dikali jumlah _worker_.
 *   **Impact:** Penutupan CafePulse sekarang dikendalikan oleh *Main Window* yang memberikan sinyal stop() asinkron secara serentak ke semua _worker_, lalu melakukan polling QApplication.processEvents() selama maksimal 5 detik. Pekerja yang gagal berhenti tidak akan diputus paksa (*terminate*), membiarkan OS merebut kembali memori secara alami setelah sys.exit() tanpa merusak integritas *database* atau meninggalkan *socket* dalam keadaan *dangling*.
+
+---
+
+## [D-019] Locked Project Directory Structure (Root Merged)
+
+*   **Date:** 2026-06-22
+*   **Decision:** Menghapus folder `Project/` secara permanen dan menyatukan seluruh kode aplikasi Python (`core/`, `ui/`, `modes/`, `main.py`) langsung di direktori *root* bersamaan dengan aset website statis (`assets/`, `css/`, `js/`, `*.html`).
+*   **Reason:** AI Assistants secara konsisten mengalami kebingungan (*hallucination/conflict*) antara direktori `Project/` dan root. Beberapa agen menerapkan *bug fixes* pada file duplikat yatim-piatu di root karena menyangka kode berada di sana berdasarkan [D-015], sehingga hasil kompilasi dari `Project/` kehilangan perbaikan krusial (seperti perbaikan *zombie process* dan *terminal flashing*).
+*   **Impact:** Struktur direktori terkunci pada arsitektur *Flat-Root*. Setiap perbaikan atau modifikasi fitur wajib dilakukan langsung di root. Segala bentuk duplikasi folder `Project/` di masa depan sangat dilarang keras.

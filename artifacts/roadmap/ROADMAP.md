@@ -21,6 +21,7 @@
 *   **Sprint 5 — Technical Debt Batch 1:** Selesai
 *   **Sprint 6 — Batch 1 Verification:** Selesai
 *   **Sprint 7 — Project OS Synchronization:** Selesai
+*   **Sprint 7.5 — Directory Consolidation & P0 Bugfixes:** Selesai (Flat-Root Repository, Zombie Process Fix, Terminal Flashing Fix)
 
 ### ACTIVE SPRINT
 *   **Sprint 8 — Founder Release Readiness:** Sedang berjalan (Menyusun panduan, onboarding, instalasi, dan audit kesiapan rilis khusus *Founder Experience*, serta _revert_ sistem registrasi ke Google Form).

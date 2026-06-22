@@ -64,6 +64,7 @@ Mengelola jaringan MikroTik skala menengah (kafe, warnet, RT/RW Net) sering kali
 2. **No Packet Sniffing:** Pemetaan jaringan hanya menggunakan kueri API resmi, neighbor discovery (MNDP), dan sweeps ARP. Penggunaan library packet sniffing (seperti scapy/libpcap) dilarang.
 3. **No Asyncio Rewrite:** Loop event asinkron dikendalikan sepenuhnya oleh event loop PyQt6. Penggunaan `asyncio` dilarang untuk menghindari memory leaks di thread utama.
 4. **SQLite WAL Mode:** Wajib menggunakan mode WAL (`PRAGMA journal_mode=WAL`) agar penulisan background thread tidak mengunci pembacaan UI thread.
+5. **Flat-Root Directory Lock:** Seluruh kode aplikasi Python (`core/`, `ui/`, `modes/`, `main.py`) wajib diletakkan langsung di root repository bersamaan dengan aset website. Dilarang membuat sub-folder seperti `Project/` atau memisahkan aplikasi desktop dari website statis demi mencegah AI context hallucination dan hilangnya perbaikan *bug*.
 
 ---
 

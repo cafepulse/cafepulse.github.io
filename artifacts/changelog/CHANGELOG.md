@@ -13,6 +13,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - **AppImage Build Integration:** Integrated `appimagetool` to package both `CafePulse_Free.AppImage` and `CafePulse_Professional.AppImage` dynamically.
 - **Unified Release Assets:** Bundled portable ZIP archives alongside built AppImages into a unified `exports/` artifact distribution on success.
 
+### Changed
+- **Final Root Merge [D-015 / D-019]:** Eliminated the `Project/` folder and merged all Python application code (`core/`, `modes/`, `ui/`, `main.py`) directly into the root directory alongside website assets. This resolves AI confusion and locks the directory structure.
+- **Beta Tester Form:** Updated the Beta Tester Google Form link in `beta.html`.
+
+### Fixed
+- **Terminal Flash (CREATE_NO_WINDOW):** Fixed the missing `subprocess.CREATE_NO_WINDOW` patch in `core/scanner/arp_scanner.py` that was lost during previous directory refactoring.
+- **Zombie Process Issue:** Migrated thread lifecycle management away from `terminate()` and `wait()` inside workers, using a unified async `GracefulShutdownMonitor` in `main_window.py` to prevent frozen database locks and abandoned sockets.
+- **Build Path Resolution:** Updated `build.py`, `build_installer.bat`, and `build-linux.yml` to correctly target the merged root directory instead of `Project/`.
+
 ## [1.0.0-RC1.2] - 2026-06-21
 
 ### Added
