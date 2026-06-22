@@ -1,0 +1,49 @@
+{
+    "app": {
+        "name": "CafePulse",
+        "version": "1.0.0",
+        "edition": "free",
+        "theme": "dark",
+        "language": "en"
+    },
+    "database": {
+        "filename": "cafepulse.db",
+        "auto_cleanup_days": 30
+    },
+    "network": {
+        "polling_interval_seconds": 2,
+        "scan_timeout_seconds": 5,
+        "default_mode": "local",
+        "wifi_scan_interval_seconds": 11,
+        "hotspot_scan_interval_seconds": 10
+    },
+    "logging": {
+        "level": "WARNING",
+        "max_file_bytes": 5242880,
+        "backup_count": 3
+    },
+    "ui": {
+        "sidebar_width": 200,
+        "window_width": 1280,
+        "window_height": 800,
+        "animations_enabled": true,
+        "theme": "dark"
+    },
+    "mikrotik": {
+        "host": "",
+        "port": 8728,
+        "username": "",
+        "password": "",
+        "save_session": false
+    },
+    "onboarding": {
+        "completed": false,
+        "tutorials_seen": {}
+    },
+    "general": {
+        "first_time_close": true,
+        "closing_behavior": "smart_safe_close",
+        "last_exit_time": null,
+        "last_active_page": "dashboard"
+    }
+}

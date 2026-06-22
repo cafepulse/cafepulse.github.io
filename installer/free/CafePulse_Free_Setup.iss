@@ -9,10 +9,10 @@
 
 #define MyAppName        "CafePulse"
 #define MyAppEdition     "Free Edition"
-#define MyAppVersion     "1.0.0"
+#define MyAppVersion "1.1.0-alpha.1"
 #define MyAppFullVersion "1.0.0.0"
 #define MyAppPublisher   "Youbellkey"
-#define MyAppURL         "https://cafepulse.github.io/"
+#define MyAppURL         "https://cafepulse.github.io"
 #define MyAppSupportURL  "https://cafepulse.github.io/contact.html"
 #define MyAppDownloadURL "https://cafepulse.github.io/download.html"
 #define MyAppExeName     "CafePulse.exe"
@@ -35,7 +35,7 @@ DefaultGroupName={#MyAppName}
 DisableProgramGroupPage=yes
 
 ; Output
-OutputDir=..\..\exports
+OutputDir=..\..\..\exports
 OutputBaseFilename=CafePulse_Free_Setup
 
 ; Branding
@@ -58,6 +58,9 @@ ArchitecturesInstallIn64BitMode=x64compatible
 ; Minimum Windows version: Windows 10
 MinVersion=10.0.17763
 
+; Prevent multiple simultaneous installer instances
+AppMutex=CafePulseSetupMutex_Free
+
 ; Version info embedded in the installer EXE itself
 VersionInfoVersion={#MyAppFullVersion}
 VersionInfoCompany={#MyAppPublisher}
@@ -65,7 +68,14 @@ VersionInfoDescription={#MyAppName} {#MyAppEdition} Setup
 VersionInfoProductName={#MyAppName}
 VersionInfoProductVersion={#MyAppFullVersion}
 
-; No admin rights required — installs to Program Files but uses LOCALAPPDATA for user data
+; --- SmartScreen & Privilege Notes ---
+; Windows SmartScreen will warn on unsigned installers.
+; To fully bypass SmartScreen, sign this installer with an EV Code Signing Certificate.
+; Without a certificate, users must click "More info" -> "Run anyway" on first launch.
+;
+; Install-for-whom dialog: the two lines below make Windows show a dialog
+; asking whether to install for current user only OR for all users (admin).
+; This is the correct behaviour — do NOT remove these two lines.
 PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=dialog
 

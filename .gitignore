@@ -1,76 +1,91 @@
-# =============================================================
-# .gitignore — cafepulse/cafepulse.github.io (WEBSITE ONLY)
-# Source code app Python TIDAK boleh masuk repo ini
-# =============================================================
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
 
-# --- App Python source code (JANGAN MASUK REPO WEBSITE) ---
-CafePulse/
-core/
-modes/
-ui/
-tools/
-tests/
-config/
-database/
-scratch/
-
-# --- Build artifacts ---
+# PyInstaller
 build/
 build_output/
 dist/
-exports/
-__pycache__/
-*.pyc
-*.pyo
-*.spec
+*.spec.bak
 
-# --- Database & logs ---
-*.db
-*.sqlite3
+# Runtime / User data (developer local session files)
+cafepulse.db
 logs/
-crash_debug.txt
-test_out.txt
+exports/
 
-# --- Python env ---
-venv/
-.venv/
-env/
-*.egg-info/
+# Developer session flags — runtime files, not for distribution
+config/.clean
+config/.lock
+config/license.lic
+config/settings.json
 
-# --- OS files ---
+# Malformed directory (created by shell error — safe to ignore)
+{core/
+
+# IDE
+.idea/
+.vscode/
+*.suo
+*.user
+*.swp
+*.swo
+
+# OS
 .DS_Store
 Thumbs.db
 desktop.ini
 
-# --- Editor ---
-.vscode/
-.idea/
-*.swp
-*.swo
+# Scratch / temp
+scratch/
+test_out.txt
+crash_debug.txt
+*.tmp
+temp/
+TEMP/
+*.db-wal
+*.db-shm
+LOCAL_BACKUPS/
+exports/licenses/
 
-# --- Secrets / keys ---
-*.key
-*.pem
-*.env
-.env.*
-secrets/
-
-# --- Large binary files ---
-*.exe
-*.zip
-*.msi
-*.dmg
-*.pkg
-*.deb
-
-# --- PDFs (internal docs) ---
-CafePulse_Beta_Tester_Ecosystem_Audit_Report.pdf
-CafePulse_Founder_Technical_Audit_Report.pdf
-
-# --- Internal audit docs (RAHASIA - jangan push ke repo publik) ---
-docs/internal_audits/
+# Licensing secrets and pregenerated list
+core/licensing/secrets.py
+core/licensing/private_key.pem
+core/licensing/public_key.pem
 docs/100_PREGENERATED_COMMERCIAL_LICENSES.md
 
-# --- Nested repos / agent folders ---
-website/
-.agent/
+# Developer internal audit reports (relocated to docs/internal_audits/)
+docs/internal_audits/
+*.md.bak
+
+# RSA Licensing
+*.lic
+*.licreq
+*.key
+*.pem
+!core/licensing/public_key.pem
+
+# License generator outputs
+generated_licenses/
+licenses/
+license_output/
+
+# RSA test artifacts
+test_founder.licreq
+test_commercial.licreq
+
+# Build artifacts (exclude website release files from this rule)
+*.exe
+*.msi
+*.zip
+# Allow installer files hosted on the website
+!website/releases/**/*.exe
+!website/releases/**/*.zip
+
+# PyInstaller extraction
+*_extracted/
+
+# Local reports
+*_Audit_Report.pdf

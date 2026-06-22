@@ -1,0 +1,3 @@
+"""
+CafePulse — IAM Views Init
+"""

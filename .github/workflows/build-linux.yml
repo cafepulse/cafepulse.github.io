@@ -11,9 +11,6 @@ jobs:
   build-linux:
     name: Build Linux Distributions (AppImage & Portable)
     runs-on: ubuntu-22.04
-    defaults:
-      run:
-        working-directory: ./Project
     env:
       QT_QPA_PLATFORM: offscreen
 
@@ -65,7 +62,6 @@ jobs:
       run: |
         python build.py
         mkdir -p exports
-        cp ../exports/*.zip exports/
 
     - name: Setup appimagetool
       run: |
@@ -149,4 +145,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: CafePulse-Linux-Distributions
-        path: Project/exports/*
+        path: exports/*
