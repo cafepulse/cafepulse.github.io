@@ -42,7 +42,7 @@ Fokus pengembangan utama adalah **Founder Experience**, dokumentasi kelancaran o
 *   **TD-001 (Hardcoded Version):** CLOSED
 *   **TD-003 (Build Cache Cleanup):** CLOSED
 *   **TD-004 (Centralized Logging):** CLOSED
-*   **TD-002 (Thread Lifecycle):** INVESTIGATION PENDING
+*   **TD-002 (Thread Lifecycle):** CLOSED
 *   **TD-005 (Refactor UI System):** DO NOT TOUCH
 *   **TD-006 (Testing Framework):** POST FOUNDER
 *   **TD-007 (Midtrans Integration):** POST FOUNDER
@@ -62,3 +62,5 @@ Fokus pengembangan utama adalah **Founder Experience**, dokumentasi kelancaran o
 
 ## 6. NEXT PRIORITY (PRIORITAS BERIKUTNYA)
 1. **Sprint 8 — Founder Release Readiness (ACTIVE)**: Memastikan pengalaman pengguna pertama (Founder Onboarding, Installation, Licensing) terdokumentasi dan berjalan mulus tanpa bantuan developer.
+   - *Update Berjalan:* Semua aset _Website_ statis GitHub Pages telah dipindahkan dari folder `website/` kembali ke _Root Directory_ untuk memulihkan _broken links_ dan mengizinkan `cafepulse.github.io` merender _index_ secara otomatis. Artefak dan Git telah disinkronisasikan sepenuhnya.
+   - *Update Berjalan:* Registrasi *Beta Tester* dan pendaftaran *Founder* via *website form kustom* telah dihapus dan diganti secara penuh menjadi CTA yang mengarah ke ekosistem **Google Form** yang lebih teruji, demi mengurangi *technical debt* (*D-016*).

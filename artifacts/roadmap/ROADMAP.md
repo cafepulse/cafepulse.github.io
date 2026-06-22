@@ -23,7 +23,7 @@
 *   **Sprint 7 — Project OS Synchronization:** Selesai
 
 ### ACTIVE SPRINT
-*   **Sprint 8 — Founder Release Readiness:** Sedang berjalan (Menyusun panduan, onboarding, instalasi, dan audit kesiapan rilis khusus *Founder Experience*).
+*   **Sprint 8 — Founder Release Readiness:** Sedang berjalan (Menyusun panduan, onboarding, instalasi, dan audit kesiapan rilis khusus *Founder Experience*, serta _revert_ sistem registrasi ke Google Form).
 
 ### NEXT SPRINT (PENDING DECISION)
 Akan ditentukan sesuai temuan dari Founder Release:

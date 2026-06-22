@@ -128,15 +128,16 @@ CafePulse/
 │   ├── free/                   # Free Edition installer config
 │   └── professional/           # Professional Edition installer config
 │
-├── website/                    # GitHub Pages website
-│   ├── index.html              # Landing page
-│   ├── download.html           # Download page
-│   ├── pricing.html            # Pricing page
-│   └── assets/                 # Website assets
+├── tests/                      # Automated test suite
+│   ├── unit/                   # Unit tests per module
+│   └── integration/            # Integration tests
 │
-└── tests/                      # Automated test suite
-    ├── unit/                   # Unit tests per module
-    └── integration/            # Integration tests
+├── *.html                      # GitHub Pages website files (root)
+│   # (index, download, pricing, dsb. berada langsung di direktori root)
+│
+├── css/                        # Website CSS stylesheets
+├── js/                         # Website JavaScript
+└── lang/                       # Website translation files (JSON)
 ```
 
 ---

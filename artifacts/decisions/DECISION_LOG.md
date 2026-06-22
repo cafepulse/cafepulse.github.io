@@ -160,3 +160,40 @@
 *   **Decision:** Memulai **Sprint 8 — Founder Release Readiness**. Menunda seluruh _Feature Development_, modifikasi _engine_, database, dan pelunasan sisa *Technical Debt*. Fokus utama dialihkan pada *Founder Experience* (Onboarding, Panduan Instalasi, dan Pelaporan Bug).
 *   **Reason:** Aplikasi telah stabil. Hambatan terbesar untuk pelepasan Beta/Founder saat ini adalah ketiadaan panduan penggunaan, template laporan masalah yang standar, serta risiko kebingungan pengguna awal (_friction_) saat mengunduh dan mengatur aplikasi untuk pertama kalinya.
 *   **Impact:** Menghasilkan _Founder Release Checklist_ komprehensif, panduan instalasi mendalam, skenario _first-launch_, pedoman pelaporan _bug/feedback_, dan evaluasi kesiapan rilis. Mencegah timbulnya impresi negatif akibat _onboarding_ yang buruk.
+
+---
+
+## [D-015] GitHub Pages Root Directory Restructuring
+
+*   **Date:** 2026-06-22
+*   **Decision:** Mengembalikan seluruh aset situs web statis (`.html`, `css/`, `js/`, `assets/`, `lang/`) ke dalam *root directory* repositori `cafepulse.github.io` dan menghapus sub-direktori `website/`.
+*   **Reason:** Terjadi konflik dan kesalahan publikasi pada GitHub Pages. Arsitektur GitHub Pages mengharuskan *file* `index.html` dan aset terkait berada langsung di *root* (`/`) agar situs dapat dirender secara otomatis di *domain* publik tanpa konfigurasi *build step* tambahan. Pemindahan ke dalam direktori `website/` (pada *Sprint 3*) menyebabkan *broken links* dan bentrok dengan *commit* yang masuk dari *remote*.
+*   **Impact:** Menghindari kebingungan dalam satu tim terkait di mana *file* web harus diedit. Seluruh halaman HTML kini dikelola secara *flat* di *root* repositori. Ruang lingkup aplikasi *Python* dan aset statis web berbaur di direktori yang sama, namun telah dikategorikan secara logis oleh penamaan _file_ (seperti `core/`, `modes/`, dsb. untuk aplikasi, dan `css/`, `js/`, `*.html` untuk situs web).
+
+---
+
+## [D-016] Beta Tester & Founder Registration Reverted to Google Forms
+
+*   **Date:** 2026-06-22
+*   **Decision:** Menghapus dan menonaktifkan formulir registrasi kustom (*Website Form*) pada halaman Beta Tester dan Founder. Pendaftaran dikembalikan sepenuhnya menggunakan platform Google Forms yang ada sebelumnya.
+*   **Reason:** Evaluasi ulang terhadap konteks CafePulse (solo developer, tanpa tim support/backend khusus). Pembuatan formulir *website custom* berisiko menambah *technical debt*, kompleksitas pemeliharaan *server/API*, titik kegagalan (*Point of Failure*), dan kelemahan keamanan (*spam*). Google Form sudah terbukti stabil, gratis, anti-spam bawaan, dan sudah terintegrasi lancar ke Discord *webhook* melalui Spreadsheet. Keputusan ini selaras dengan filosofi CafePulse untuk menghindari *over-engineering*.
+*   **Impact:** Menghapus elemen `beta-report-form` dan skrip pendukung dari `beta.html` dan `founder.html`. Halaman tersebut kini hanya menyajikan *Call-to-Action* (CTA) yang menautkan pengunjung langsung ke Google Form. Beban *maintenance* pada *front-end* berkurang drastis.
+
+
+---
+
+## [D-017] Artifact Generator Strict Compliance (Fail Fast & Verbatim Copy)
+
+*   **Date:** 2026-06-22
+*   **Decision:** Menerapkan aturan strict *Fail Fast*, *Case-Insensitive Matching*, dan penyisipan penanda *GENERATED_ARTIFACT = TRUE* pada skrip generator Project OS.
+*   **Reason:** Saat mengompilasi ZIP artefak untuk AI eksternal, sering terjadi insiden *Documentation Hallucination* di mana generator (LLM) membuat _placeholder_ dokumen inti (seperti PROJECT_STATE.md) karena gagal menemukannya di direktori yang benar akibat *case-sensitivity* atau kegagalan *discovery*. Jika dokumen _placeholder_ menimpa dokumen asli, Project OS akan hancur dan kehilangan memori state.
+*   **Impact:** Memastikan generator artefak harus menyalin file secara verbatim dari rtifacts/. Jika ia memutuskan untuk melakukan generate *fallback* karena file benar-benar tidak ada, ia harus menyisipkan penanda eksplisit. Jika pembuatan *fallback* berisiko menimpa file eksisting, skrip harus langsung *Crash/Fail Fast*.
+
+---
+
+## [D-018] Graceful Thread Shutdown Architecture (No Terminate)
+
+*   **Date:** 2026-06-22
+*   **Decision:** Melarang secara mutlak penggunaan pemanggilan QThread.terminate() dan internal self.wait() di dalam daur hidup (*lifecycle*) worker *PyQt6*. Mengadopsi arsitektur asinkron *Collective Wait* pada Main Thread.
+*   **Reason:** Penyelesaian isu P0 TD-002 (Shutdown Zombie Process). Penggunaan worker.terminate() secara paksa membunuh OS thread, menyebabkan blok inally diabaikan, koneksi *socket* RouterOS menggantung, _database lock_ .wal SQLite terabaikan, dan subprocess (seperti *ping*) menjadi zombie. Selain itu, fungsi stop() pada _worker_ sebelumnya mengandung self.wait(5000), yang mengunci (*block*) Main Thread selama 5 detik dikali jumlah _worker_.
+*   **Impact:** Penutupan CafePulse sekarang dikendalikan oleh *Main Window* yang memberikan sinyal stop() asinkron secara serentak ke semua _worker_, lalu melakukan polling QApplication.processEvents() selama maksimal 5 detik. Pekerja yang gagal berhenti tidak akan diputus paksa (*terminate*), membiarkan OS merebut kembali memori secara alami setelah sys.exit() tanpa merusak integritas *database* atau meninggalkan *socket* dalam keadaan *dangling*.

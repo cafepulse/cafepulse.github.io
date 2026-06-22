@@ -25,6 +25,14 @@ Memastikan seorang Founder User yang belum pernah melihat CafePulse sebelumnya d
   - [ ] Audit halaman Website (Download, Pricing, Docs, Discord).
   - [ ] Simulasikan alur "Founder Experience".
   - [ ] Terbitkan `RELEASE_READINESS_REPORT.md` (Audit akhir kesiapan rilis).
+- [ ] **Beta Tester Registration Revert**
+  - [x] Audit `BETA_TESTER_REGISTRATION_AUDIT.md`.
+  - [x] Ganti formulir dengan Google Form link di semua halaman HTML.
+  - [x] Update Project OS (`D-016`).
+- [x] **P0 Critical Mission (Interrupt)**
+  - [x] Audit 10 Fase daur hidup Thread & Subprocess (TD-002).
+  - [x] Implementasi Patch Plan (Collective Wait, hapus `terminate()`, kill zombie `ping`).
+  - [x] Update Project OS (`D-017`, `D-018`).
 
 ---
 

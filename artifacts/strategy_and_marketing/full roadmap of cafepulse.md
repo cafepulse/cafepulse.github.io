@@ -854,7 +854,7 @@ Must include:
 
 ## FAQ
 
-## screenshots placeholder section
+## Galeri Antarmuka Pengguna
 
 ---
 
