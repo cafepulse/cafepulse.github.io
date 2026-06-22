@@ -215,7 +215,8 @@ function initMarkdownLoader() {
         'changelog': './docs/changelog.md',
         'known_issues': './docs/known_issues.md',
         'product_overview': './docs/product/product_overview.md',
-        'editions_comparison': './docs/product/editions_comparison.md'
+        'editions_comparison': './docs/product/editions_comparison.md',
+        'pricing_and_licensing': './docs/pricing_and_licensing.md'
     };
 
     const urlParams = new URLSearchParams(window.location.search);
