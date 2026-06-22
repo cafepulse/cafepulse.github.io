@@ -20,6 +20,8 @@ Ketiadaan modul manajemen versi terpusat (seperti `version.py`) dan penggunaan p
 ### Recommended Timing: FIX BEFORE FOUNDER RELEASE
 ### Justification: 
 Ketidakkonsistenan pelaporan versi akan sangat menghambat proses triase *bug* selama fase *Closed Beta*. Perbaikannya sangat terisolasi (hanya pemusatan variabel dan *injection* ke *build script*).
+### Resolution Status: 
+**CLOSED** (Selesai pada Sprint sebelumnya, menggunakan modul `version.py` tersentralisasi).
 
 ---
 
@@ -39,6 +41,8 @@ Penanganan *signals/slots* dan penutupan aplikasi yang belum sempurna saat inter
 ### Recommended Timing: FIX BEFORE FOUNDER RELEASE
 ### Justification: 
 Isu *zombie thread* akan merusak pengalaman pengguna dan menyebabkan komplain performa PC (*resource leak*). Walaupun regresi berisiko, isu ini harus ditangani sebelum aplikasi menyentuh komputer klien nyata.
+### Resolution Status: 
+**CLOSED** (Selesai di Sprint 7.5. Diatasi sepenuhnya lewat arsitektur *GracefulShutdownMonitor* (D-018) dan meratakan *root folder* (D-019) untuk mencegah regresi bug kembali).
 
 ---
 
@@ -58,6 +62,8 @@ Pendekatan kompilasi inkremental saat fase *rapid prototyping* tanpa siklus `cle
 ### Recommended Timing: FIX BEFORE FOUNDER RELEASE
 ### Justification: 
 Penambahan perintah `rmdir /s /q build dist` atau pembersihan modul yang *stale* di awal skrip rilis sangat esensial untuk menjamin biner rilis bersih.
+### Resolution Status: 
+**CLOSED** (Pembersihan _cache_ build terotomatisasi di `build.py` dan `build-linux.yml`).
 
 ---
 
@@ -77,6 +83,8 @@ Pengembangan iteratif secara paralel tanpa modul *Logger* inti yang membungkus s
 ### Recommended Timing: FIX BEFORE FOUNDER RELEASE
 ### Justification: 
 Agar pengujian *Beta* efektif, sistem pelaporan kesalahan (log file) mutlak dibutuhkan.
+### Resolution Status: 
+**CLOSED** (Sistem _logging_ tersentralisasi dan persisten telah diimplementasi di seluruh arsitektur *Project OS*).
 
 ---
 
