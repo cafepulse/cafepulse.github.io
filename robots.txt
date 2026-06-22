@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://youbellkey.github.io/cafepulse-site/sitemap.xml
