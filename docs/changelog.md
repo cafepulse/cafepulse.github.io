@@ -17,3 +17,4 @@ Daftar perbaikan bug, fitur baru, dan penyempurnaan teknis yang telah diterapkan
 - **Linux AppImage Distribution:** Pipeline rilis otomatis berhasil menghasilkan biner portabel `CafePulse_Free.AppImage` dan `CafePulse_Professional.AppImage` siap jalan.
 - **Unified SHA256 Manifest:** Checksum file manifest `SHA256SUMS.txt` sekarang dibuat otomatis lewat skrip Python lintas platform agar line endings selalu seragam.
 - **Platform-Agnostic RSA Licensing:** Mengintegrasikan sistem penandatanganan offline RSA-4096 terpusat yang bekerja secara identik di sistem operasi Windows maupun Linux.
+- **Midtrans Offline Flow Integration:** Menambahkan panduan arsitektur dan checkout lisensi Midtrans yang dipisahkan ke website untuk menjamin aplikasi desktop 100% offline.
