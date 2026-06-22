@@ -22,14 +22,13 @@
 *   **Sprint 6 — Batch 1 Verification:** Selesai
 *   **Sprint 7 — Project OS Synchronization:** Selesai
 *   **Sprint 7.5 — Directory Consolidation & P0 Bugfixes:** Selesai (Flat-Root Repository, Zombie Process Fix, Terminal Flashing Fix)
+*   **Sprint 8 — Founder & Website Release Readiness:** Selesai (Menyusun panduan, onboarding, instalasi, audit rilis, dan revert pendaftaran ke Google Form)
 
 ### ACTIVE SPRINT
-*   **Sprint 8 — Founder Release Readiness:** Sedang berjalan (Menyusun panduan, onboarding, instalasi, dan audit kesiapan rilis khusus *Founder Experience*, serta _revert_ sistem registrasi ke Google Form).
+*   **Sprint 9 — Closed Beta Campaign:** Sedang berjalan (Distribusi biner rilis beta, monitoring pelaporan bug, triase log, dan pengumpulan feedback).
 
 ### NEXT SPRINT (PENDING DECISION)
-Akan ditentukan sesuai temuan dari Founder Release:
-*   Website Polish & Changelog
-*   TD-002 Investigation
+Akan ditentukan sesuai temuan dan feedback dari Closed Beta Campaign.
 
 ---
 

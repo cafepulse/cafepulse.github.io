@@ -4,8 +4,8 @@
 ---
 
 ## 1. CURRENT STATUS
-CafePulse saat ini berada pada fase **Pre-Founder Stabilization**. 
-Fokus pengembangan utama adalah **Founder Experience**, dokumentasi kelancaran onboarding, dan penyediaan _Feedback Loop_ yang terstruktur, bukan _Feature Development_.
+CafePulse saat ini berada pada fase **Closed Beta Launch**. 
+Fokus utama adalah pelaksanaan kampanye uji coba beta tertutup (Closed Beta), pengumpulan feedback, triase bug, dan menjaga kestabilan operasional rilis.
 
 ---
 
@@ -58,10 +58,12 @@ Fokus pengembangan utama adalah **Founder Experience**, dokumentasi kelancaran o
 *   Batch 1 Verification
 *   Project OS Synchronization & Release Readiness Audit
 *   Directory Structure Finalization & Terminal/Zombie Bug Consolidation (Root Merged)
+*   Sprint 8 — Founder & Website Release Readiness (Selesai, situs web siap dengan integrasi Google Form & Gmail)
 
 ---
 
 ## 6. NEXT PRIORITY (PRIORITAS BERIKUTNYA)
-1. **Sprint 8 — Founder Release Readiness (ACTIVE)**: Memastikan pengalaman pengguna pertama (Founder Onboarding, Installation, Licensing) terdokumentasi dan berjalan mulus tanpa bantuan developer.
-   - *Update Berjalan:* Semua aset _Website_ statis GitHub Pages telah dipindahkan dari folder `website/` kembali ke _Root Directory_ untuk memulihkan _broken links_ dan mengizinkan `cafepulse.github.io` merender _index_ secara otomatis. Artefak dan Git telah disinkronisasikan sepenuhnya.
-   - *Update Berjalan:* Registrasi *Beta Tester* dan pendaftaran *Founder* via *website form kustom* telah dihapus dan diganti secara penuh menjadi CTA yang mengarah ke ekosistem **Google Form** yang lebih teruji, demi mengurangi *technical debt* (*D-016*).
+1. **Sprint 9 — Closed Beta Campaign**:
+   - Distribusi biner rilis beta kepada 10 tester terdaftar.
+   - Pemantauan pelaporan bug dan integrasi feedback dari tester.
+   - Triase berkas diagnostik dan perbaikan regresi jika ditemukan.

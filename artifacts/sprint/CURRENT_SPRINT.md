@@ -10,22 +10,22 @@ Memastikan seorang Founder User yang belum pernah melihat CafePulse sebelumnya d
 
 ## 2. ACTIVE TASKS (STATUS PELAKSANAAN)
 
-- [ ] **Project OS Update**
+- [x] **Project OS Update**
   - [x] Sinkronisasi `ROADMAP.md`, `PROJECT_STATE.md`, `DECISION_LOG.md`, `CURRENT_SPRINT.md`.
   - [x] Tambahkan D-014 (Founder Release Readiness Initiated).
-- [ ] **Founder Onboarding & Testing Guides**
-  - [ ] Buat `FOUNDER_RELEASE_CHECKLIST.md` (Checklist final kesiapan rilis).
-  - [ ] Buat `INSTALLATION_GUIDE.md` (Instruksi detail instalasi OS Windows & Linux).
-  - [ ] Buat `FIRST_LAUNCH_GUIDE.md` (Pengenalan Workspace & fitur inti).
-  - [ ] Buat `FOUNDER_TESTING_GUIDE.md` (Arahan dan panduan pemberian feedback).
-- [ ] **Reporting Templates**
-  - [ ] Buat `BUG_REPORT_TEMPLATE.md` (Format standar log, reproduksi, OS).
-  - [ ] Buat `FEEDBACK_TEMPLATE.md` (Format standar UX/Performa/Fitur).
-- [ ] **Audits & Verification**
-  - [ ] Audit halaman Website (Download, Pricing, Docs, Discord).
-  - [ ] Simulasikan alur "Founder Experience".
-  - [ ] Terbitkan `RELEASE_READINESS_REPORT.md` (Audit akhir kesiapan rilis).
-- [ ] **Beta Tester Registration Revert**
+- [x] **Founder Onboarding & Testing Guides**
+  - [x] Buat `FOUNDER_RELEASE_CHECKLIST.md` (Checklist final kesiapan rilis).
+  - [x] Buat `INSTALLATION_GUIDE.md` (Instruksi detail instalasi OS Windows & Linux).
+  - [x] Buat `FIRST_LAUNCH_GUIDE.md` (Pengenalan Workspace & fitur inti).
+  - [x] Buat `FOUNDER_TESTING_GUIDE.md` (Arahan dan panduan pemberian feedback).
+- [x] **Reporting Templates**
+  - [x] Buat `BUG_REPORT_TEMPLATE.md` (Format standar log, reproduksi, OS).
+  - [x] Buat `FEEDBACK_TEMPLATE.md` (Format standar UX/Performa/Fitur).
+- [x] **Audits & Verification**
+  - [x] Audit halaman Website (Download, Pricing, Docs, Discord).
+  - [x] Simulasikan alur "Founder Experience".
+  - [x] Terbitkan `RELEASE_READINESS_REPORT.md` (Audit akhir kesiapan rilis).
+- [x] **Beta Tester Registration Revert**
   - [x] Audit `BETA_TESTER_REGISTRATION_AUDIT.md`.
   - [x] Ganti formulir dengan Google Form link di semua halaman HTML.
   - [x] Update Project OS (`D-016`).
@@ -44,7 +44,7 @@ Memastikan seorang Founder User yang belum pernah melihat CafePulse sebelumnya d
 
 | In Progress | Blockers | Next Action |
 |---|---|---|
-| Penulisan materi instruksi dan onboarding | *Tidak ada* | Menyusun seluruh dokumen panduan dan template ke dalam repositori dokumentasi. |
+| *Tidak ada* | *Tidak ada* | Seluruh panduan, template, audit rilis, dan revert pendaftaran telah diselesaikan dan dirilis. |
 
 ---
 

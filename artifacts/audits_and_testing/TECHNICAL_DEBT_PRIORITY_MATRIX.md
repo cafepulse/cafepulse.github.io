@@ -2,15 +2,15 @@
 
 Tabel ringkasan berikut merangkum hasil audit dari dokumen `TECHNICAL_DEBT_AUDIT.md`. Matriks ini disusun berdasarkan keseimbangan antara tingkat bahaya risiko (*Risk*) dengan besaran pekerjaan perbaikan dan ancaman regresi kode jika diubah saat ini (*Regression Risk*).
 
-| Debt ID | Kategori | Risk | Regression Risk | Fix Size | Recommendation |
-| ------- | -------- | ---- | --------------- | -------- | -------------- |
-| **TD-001** | Build / Release (Hardcoded Version) | HIGH | LOW | S | **FIX BEFORE FOUNDER RELEASE** |
-| **TD-002** | Architecture / UI (Zombie Thread) | HIGH | HIGH | M | **FIX BEFORE FOUNDER RELEASE** |
-| **TD-003** | Build / Release (Cache Automation) | HIGH | LOW | S | **FIX BEFORE FOUNDER RELEASE** |
-| **TD-004** | Architecture / Documentation (Logs) | MEDIUM | LOW | M | **FIX BEFORE FOUNDER RELEASE** |
-| **TD-005** | UI (Oversized Widgets / Coupling) | LOW | MEDIUM | L | **DO NOT TOUCH** |
-| **TD-006** | Licensing / Website (Manual Keys) | MEDIUM | LOW | L | **FIX AFTER FOUNDER RELEASE** |
-| **TD-007** | Database / MikroTik (Mocked Configs) | LOW | LOW | XL | **FIX AFTER FOUNDER RELEASE** |
+| Debt ID | Kategori | Risk | Regression Risk | Fix Size | Recommendation | Status |
+| ------- | -------- | ---- | --------------- | -------- | -------------- | ------ |
+| **TD-001** | Build / Release (Hardcoded Version) | HIGH | LOW | S | **FIX BEFORE FOUNDER RELEASE** | **CLOSED (Sprint 8)** |
+| **TD-002** | Architecture / UI (Zombie Thread) | HIGH | HIGH | M | **FIX BEFORE FOUNDER RELEASE** | **CLOSED (Sprint 8)** |
+| **TD-003** | Build / Release (Cache Automation) | HIGH | LOW | S | **FIX BEFORE FOUNDER RELEASE** | **CLOSED (Sprint 8)** |
+| **TD-004** | Architecture / Documentation (Logs) | MEDIUM | LOW | M | **FIX BEFORE FOUNDER RELEASE** | **CLOSED (Sprint 8)** |
+| **TD-005** | UI (Oversized Widgets / Coupling) | LOW | MEDIUM | L | **DO NOT TOUCH** | **DO NOT TOUCH** |
+| **TD-006** | Licensing / Website (Manual Keys) | MEDIUM | LOW | L | **FIX AFTER FOUNDER RELEASE** | **POST-FOUNDER** |
+| **TD-007** | Database / MikroTik (Mocked Configs) | LOW | LOW | XL | **FIX AFTER FOUNDER RELEASE** | **POST-FOUNDER** |
 
 ---
 

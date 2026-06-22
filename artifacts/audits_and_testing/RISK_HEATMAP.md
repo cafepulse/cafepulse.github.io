@@ -9,14 +9,15 @@ Kuadran ini menentukan posisi isu teknis. Targetnya adalah menyingkirkan semua y
 
 | Regression Risk ⬇️ / Danger Risk ➡️ | LOW RISK | MEDIUM RISK | HIGH RISK | CRITICAL RISK |
 | :---: | :---: | :---: | :---: | :---: |
-| **HIGH** |  |  | `[TD-002]` Thread Lifecycle Zombie |  |
+| **HIGH** |  |  | `[TD-002]` Thread Lifecycle *(CLOSED)* |  |
 | **MEDIUM** | `[TD-005]` UI Over-coupling |  |  |  |
-| **LOW** | `[TD-007]` Mocked Advanced Config | `[TD-006]` Manual Licensing<br>`[TD-004]` Fragmented Logs | `[TD-001]` Hardcoded Versions<br>`[TD-003]` Stale PyInstaller Cache |  |
+| **LOW** | `[TD-007]` Mocked Advanced Config | `[TD-006]` Manual Licensing<br>`[TD-004]` Centralized Logs *(CLOSED)* | `[TD-001]` Version Sync *(CLOSED)*<br>`[TD-003]` Cache Cleanup *(CLOSED)* |  |
 
 ---
 
 ### Heatmap Legend
-- 🟥 **Zona Bahaya Merah (High Risk / Low-Med Regression):** WAJIB dibenahi. Upayanya kecil, tapi efek merusaknya besar jika rilis beta berjalan. (TD-001, TD-003)
-- 🟧 **Zona Oranye (High Risk / High Regression):** HARUS diselesaikan dengan kehati-hatian. Ada di jalur kritis (TD-002) karena menyangkut stabilisasi *threading*.
-- 🟨 **Zona Kuning (Medium Risk):** Penting dibenahi, namun bisa diakali secara manual (TD-006) atau diperbaiki dengan ukuran kerja sedang (TD-004).
+- 🟥 **Zona Bahaya Merah (High Risk / Low-Med Regression):** **CLOSED (Sprint 8)**. Upayanya kecil, tapi efek merusaknya besar jika rilis beta berjalan. (TD-001, TD-003 diselesaikan sepenuhnya).
+- 🟧 **Zona Oranye (High Risk / High Regression):** **CLOSED (Sprint 8)**. Diselesaikan secara aman lewat arsitektur *collective wait* (TD-002) untuk mencegah zombie process.
+- 🟨 **Zona Kuning (Medium Risk):** **RESOLVED / POST-FOUNDER**. TD-004 ditutup lewat logger sentral persisten. Otomatisasi kunci lisensi (TD-006) ditunda hingga setelah Founder Release.
 - 🟩 **Zona Hijau (Low Risk):** Paling aman dibiarkan saja. Merombak di zona ini saat ini adalah pemborosan waktu atau bahkan bunuh diri arsitektur (TD-005, TD-007).
+

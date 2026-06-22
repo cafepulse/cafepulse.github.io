@@ -206,3 +206,24 @@
 *   **Decision:** Menghapus folder `Project/` secara permanen dan menyatukan seluruh kode aplikasi Python (`core/`, `ui/`, `modes/`, `main.py`) langsung di direktori *root* bersamaan dengan aset website statis (`assets/`, `css/`, `js/`, `*.html`).
 *   **Reason:** AI Assistants secara konsisten mengalami kebingungan (*hallucination/conflict*) antara direktori `Project/` dan root. Beberapa agen menerapkan *bug fixes* pada file duplikat yatim-piatu di root karena menyangka kode berada di sana berdasarkan [D-015], sehingga hasil kompilasi dari `Project/` kehilangan perbaikan krusial (seperti perbaikan *zombie process* dan *terminal flashing*).
 *   **Impact:** Struktur direktori terkunci pada arsitektur *Flat-Root*. Setiap perbaikan atau modifikasi fitur wajib dilakukan langsung di root. Segala bentuk duplikasi folder `Project/` di masa depan sangat dilarang keras.
+
+---
+
+## [D-020] Founder Program Deferred
+
+*   **Date:** 2026-06-22
+*   **Decision:** Menunda pembukaan program pembelian lisensi Founder (Founder Program) pada website publik dan mengganti seluruh tombol aksi pembelian/pendaftaran dengan penanda "Coming Soon".
+*   **Reason:** Fokus saat ini dialihkan sepenuhnya pada validasi stabilitas dan keandalan sistem melalui program Beta Tester (Closed Beta) yang lebih terkontrol, sebelum meluncurkan penjualan komersial.
+*   **Alternatives Rejected:** Membiarkan link pembelian aktif dengan formulir manual.
+*   **Impact:** Mengamankan ekspektasi pengguna awal dan memberikan waktu bagi developer untuk mematangkan build rilis.
+
+---
+
+## [D-021] Website Bug Reporting & Beta Tester Registration
+
+*   **Date:** 2026-06-22
+*   **Decision:** Mengganti alur registrasi Beta Tester kustom dengan tautan eksternal ke Google Forms (`forms.gle/VPwQ3jRBySbCEvKX7`) untuk pendaftaran dan pelaporan bug. Pada halaman Beta, disediakan pula akses cepat ke Gmail (memanfaatkan template link Gmail dinamis) serta opsi "Copy Email" untuk kemudahan pengiriman log manual.
+*   **Reason:** Memangkas kompleksitas pemeliharaan backend email/formulir kustom di server statis GitHub Pages dan menghindari risiko spamming serta kegagalan pengiriman log biner/gambar berukuran besar.
+*   **Alternatives Rejected:** Menggunakan service FormSubmit secara langsung. Ditolak karena batasan ukuran file log dan ketergantungan email aktivasi eksternal.
+*   **Impact:** Alur pendaftaran dan pelaporan bug menjadi sangat stabil, mudah dikelola secara manual oleh developer via spreadsheet Google Forms, dan bebas dari overhead server side.
+

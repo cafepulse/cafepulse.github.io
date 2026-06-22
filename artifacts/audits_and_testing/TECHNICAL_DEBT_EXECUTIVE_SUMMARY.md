@@ -9,14 +9,14 @@
 ## 1. Kesimpulan Status Arsitektur
 Arsitektur inti CafePulse (SQLite WAL, Offline RSA-4096, Subnet Sweep, dan API MikroTik dasar) telah mapan dan aman untuk diuji coba. Tidak ditemukan **Critical Security Issue** atau **Data Loss Risk** yang memblokir langkah perilisan ke Founder/Beta Tester.
 
-Namun, fase audit ketat yang dilakukan menyimpulkan bahwa **empat *technical debt* berisiko tinggi (HIGH RISK) wajib diselesaikan segera sebelum biner dieksekusi secara luas.** Membiarkan keempat masalah tersebut akan secara signifikan mempersulit proses *debugging*, kompilasi, dan keandalan pelaporan cacat perangkat lunak saat aplikasi digunakan Beta Tester.
+**Empat *technical debt* berisiko tinggi (HIGH RISK) yang wajib diselesaikan segera sebelum biner dieksekusi secara luas kini telah diselesaikan sepenuhnya (CLOSED) pada Sprint 8.** Hal ini menjamin proses pelacakan bug, kompilasi biner, dan manajemen thread berjalan dengan sangat andal.
 
-## 2. Temuan Paling Krusial (Wajib Dibenahi Segera)
+## 2. Temuan Paling Krusial (Telah Diselesaikan / CLOSED)
 
-1. **Sinkronisasi Versi yang Rentan (TD-001):** Versi `1.1.0-alpha.1` saat ini bertebaran dalam *hardcode* di lebih dari 5 file terpisah. Jika rilis berlanjut ke tahap ini, pelaporan *bug* berpotensi gagal diklasifikasi karena ketidakselarasan versi antarmuka dengan versi biner *installer*.
-2. **Kestabilan Siklus *Thread* (TD-002):** *Worker background* (seperti `mikrotik_worker` dan subnet ARP) tidak dihancurkan secara elegan (`wait()` / `quit()`) saat aplikasi ditutup. Perlu perbaikan *hook teardown* untuk menghindari keluhan PC melambat akibat aplikasi tertinggal di *Task Manager* Windows.
-3. **Pembersihan Lingkungan Kompilasi (TD-003):** Otomatisasi rilis *script* Windows dan Linux belum membersihkan folder `/build` dan `/dist`. Hal ini berisiko mencampurkan modul usang ke dalam distribusi installer *.exe* selanjutnya.
-4. **Sentralisasi Penulisan File *Log* (TD-004):** Pengujian *Closed Beta* tanpa log yang sistematis adalah kesia-siaan. Aplikasi perlu mencatat *error stack trace* API secara tersentralisasi sebelum diluncurkan.
+1. **[CLOSED] Sinkronisasi Versi yang Rentan (TD-001):** Versi aplikasi sekarang telah dikelola terpusat melalui satu file referensi tunggal (`version.py`) untuk menjamin konsistensi antara UI, installer, dan file log.
+2. **[CLOSED] Kestabilan Siklus *Thread* (TD-002):** Worker background kini dimonitor dan dimatikan secara asinkron menggunakan collective wait oleh `GracefulShutdownMonitor` tanpa interupsi paksa yang memicu lockup database atau process zombie di latar belakang.
+3. **[CLOSED] Pembersihan Lingkungan Kompilasi (TD-003):** Script build lokal (`build.py`) dan CI/CD Linux sekarang secara otomatis melakukan pembersihan folder cache build (`build/` dan `dist/`) secara bersih sebelum melakukan kompilasi versi rilis baru.
+4. **[CLOSED] Sentralisasi Penulisan File *Log* (TD-004):** Logger sentral yang persisten telah diimplementasikan untuk mencatat *stack trace* dan log sistem secara terpadu, memudahkan triase bug di fase Beta.
 
 ## 3. Keputusan Pengabaian & Penundaan (Do Not Touch)
 
@@ -25,4 +25,4 @@ Sebagai implementator, saya **sangat menentang** perbaikan refaktor pada struktu
 ---
 
 **Tindakan Lanjutan:**
-Menunggu izin dan *Architecture Review* dari ChatGPT. Dilarang mengubah sebaris kodepun sampai lampu hijau diberikan atas matrik prioritas ini.
+Seluruh perbaikan technical debt prioritas utama telah berhasil diintegrasikan dan diverifikasi sukses. Proyek sekarang siap dipublikasikan ke tahap Closed Beta dengan tingkat keandalan yang tinggi.
