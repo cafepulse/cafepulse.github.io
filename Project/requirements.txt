@@ -1,0 +1,10 @@
+PyQt6==6.7.1
+PyQt6-Qt6==6.7.1
+PyQt6-sip==13.8.0
+pyqtgraph==0.13.7
+mac-vendor-lookup==0.1.12
+routeros-api==0.21.0
+pyinstaller==6.10.0
+cryptography==43.0.1
+psutil==6.0.0
+numpy==1.26.4

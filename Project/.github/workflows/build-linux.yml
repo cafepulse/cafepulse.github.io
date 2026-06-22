@@ -1,0 +1,149 @@
+name: CafePulse Linux Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-linux:
+    name: Build Linux Distributions (AppImage & Portable)
+    runs-on: ubuntu-22.04
+    env:
+      QT_QPA_PLATFORM: offscreen
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Set up Python 3.12
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+        cache: 'pip'
+
+    - name: Install System Dependencies for PyQt6
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          libegl1 \
+          libgl1-mesa-glx \
+          libxcb-xinerama0 \
+          libxkbcommon-x11-0 \
+          libxcb-icccm4 \
+          libxcb-image0 \
+          libxcb-keysyms1 \
+          libxcb-randr0 \
+          libxcb-render-util0 \
+          libxcb-shape0 \
+          libxcb-shm0 \
+          libxcb-sync1 \
+          libxcb-util1 \
+          libxcb-xfixes0 \
+          libxcb-xkb1 \
+          libxkbcommon0 \
+          libxcb-cursor0
+
+    - name: Install Python Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pyinstaller
+        if [ -f requirements.txt ]; then
+          pip install -r requirements.txt
+        fi
+
+    - name: Clean Build Cache
+      run: |
+        rm -rf build/ dist/ build_output/ exports/
+
+    - name: Compile Executable via build.py
+      run: |
+        python build.py
+        mkdir -p exports
+        cp ../exports/*.zip exports/
+
+    - name: Setup appimagetool
+      run: |
+        wget https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage
+        chmod +x appimagetool-x86_64.AppImage
+        # Extract appimagetool to bypass FUSE requirements in container environment
+        ./appimagetool-x86_64.AppImage --appimage-extract
+        echo "APPIMAGETOOL_PATH=$(pwd)/squashfs-root/AppRun" >> $GITHUB_ENV
+
+    # ─── Package Free Edition AppImage ───
+    - name: Package Free Edition AppImage
+      run: |
+        # 1. Create structure
+        mkdir -p AppDir_Free/usr/bin
+        cp -r build_output/CafePulse_Free_Portable/CafePulse/* AppDir_Free/usr/bin/
+        
+        # 2. Add AppRun launcher
+        cat << 'EOF' > AppDir_Free/AppRun
+        #!/bin/sh
+        HERE="$(dirname "$(readlink -f "${0}")")"
+        exec "${HERE}/usr/bin/CafePulse" "$@"
+        EOF
+        chmod +x AppDir_Free/AppRun
+        
+        # 3. Add Desktop Entry
+        cat << 'EOF' > AppDir_Free/CafePulse.desktop
+        [Desktop Entry]
+        Type=Application
+        Name=CafePulse Free
+        Comment=CafePulse Network Operations Platform (Free Edition)
+        Exec=CafePulse
+        Icon=cafepulse
+        Terminal=false
+        Categories=Network;Utility;System;
+        EOF
+        
+        # 4. Add Icon
+        cp assets/branding/logo.png AppDir_Free/cafepulse.png
+        
+        # 5. Build AppImage
+        $APPIMAGETOOL_PATH AppDir_Free exports/CafePulse_Free.AppImage
+
+    # ─── Package Professional Edition AppImage ───
+    - name: Package Professional Edition AppImage
+      run: |
+        # 1. Create structure
+        mkdir -p AppDir_Pro/usr/bin
+        cp -r build_output/CafePulse_Professional_Portable/CafePulse/* AppDir_Pro/usr/bin/
+        
+        # 2. Add AppRun launcher
+        cat << 'EOF' > AppDir_Pro/AppRun
+        #!/bin/sh
+        HERE="$(dirname "$(readlink -f "${0}")")"
+        exec "${HERE}/usr/bin/CafePulse" "$@"
+        EOF
+        chmod +x AppDir_Pro/AppRun
+        
+        # 3. Add Desktop Entry
+        cat << 'EOF' > AppDir_Pro/CafePulse.desktop
+        [Desktop Entry]
+        Type=Application
+        Name=CafePulse Professional
+        Comment=CafePulse Network Operations Platform (Professional Edition)
+        Exec=CafePulse
+        Icon=cafepulse
+        Terminal=false
+        Categories=Network;Utility;System;
+        EOF
+        
+        # 4. Add Icon
+        cp assets/branding/logo.png AppDir_Pro/cafepulse.png
+        
+        # 5. Build AppImage
+        $APPIMAGETOOL_PATH AppDir_Pro exports/CafePulse_Professional.AppImage
+
+    - name: List Compiled Distributions
+      run: |
+        ls -la exports/
+
+    - name: Upload Build Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: CafePulse-Linux-Distributions
+        path: exports/*
