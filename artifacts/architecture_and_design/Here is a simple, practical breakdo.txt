@@ -1,0 +1,31 @@
+Here is a simple, practical breakdown of router_client.py for your project ownership and maintenance:
+
+1. File Responsibility
+Its only job is to be the lowest-level "plug" between CafePulse and the MikroTik router. It does not do any polling, analytics, or UI updates. It simply opens the connection, holds the connection open, and closes it when told to.
+
+2. Internal Flow
+When you create a RouterClient, it just saves your credentials (host, username, password). It keeps two internal variables: self.connection (the raw socket pool) and self.api (the object used to run commands). Both start empty (None) until you explicitly tell it to connect.
+
+3. How connect() Works
+It uses the routeros_api library to open a direct socket to the router. If successful, it grabs the api object and saves it so we can use it later to fetch data. If it fails (e.g., wrong password or router offline), it immediately cleans up any partial connection and throws an error back to whoever called it.
+
+4. How disconnect() Works
+It safely shuts down the connection. It wraps the shutdown process in a try/except block—meaning if the connection is already dead or broken, it won’t crash the app while trying to close it. Finally, it resets the internal variables to None so we start with a clean slate next time.
+
+5. How validate_credentials() Works
+This is a quick "ping" test. It calls connect(), and if it succeeds, it immediately calls disconnect() and returns True. If connect() throws an error, it catches it and translates it into a human-readable message (e.g., "Authentication failed" or "Connection failed") instead of crashing.
+
+6. Error Handling Flow
+The client does not try to be "too smart" about errors. If a connection fails, it raises the error upwards. This is intentional: the RouterClient shouldn't decide when to retry. That decision belongs to the connection_manager.py (which we will build next), keeping responsibilities clearly separated.
+
+7. Timeout Handling Approach
+Because it is a synchronous wrapper, socket timeouts are handled by the underlying routeros_api library. If a timeout occurs during connection, it throws a standard RouterOsApiConnectionError. This allows our future manager class to catch it and say, "The router took too long to respond, let's wait 3 seconds and try again."
+
+8. Why This Architecture Remains Lightweight
+It is a single, flat class with under 100 lines of code. There are no fancy event buses, no complex inheritance trees, and no asynchronous callbacks. If you ever need to debug a connection issue, you only have to look at these few straightforward functions.
+
+9. How This Avoids UI Blocking
+By itself, it would block the UI because opening a network socket takes time. However, it avoids UI freezing because it will never be run on the main UI thread. All calls to RouterClient will happen strictly inside our future QThread (the polling worker).
+
+10. How polling_worker.py Will Interact With It
+When the worker starts in its background thread, it will create a RouterClient and call connect(). Once connected, the worker will call get_api() to grab the active API object. The worker will then run a loop (every 2 seconds) using that API object to fetch bandwidth and user stats.
