@@ -12,10 +12,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - **Headless PyQt6/PyQtGraph Compilation:** Enabled PyInstaller compilation of PyQt6 apps in headless environments by configuring `QT_QPA_PLATFORM: offscreen` and installing `libxcb-cursor0` system dependency.
 - **AppImage Build Integration:** Integrated `appimagetool` to package both `CafePulse_Free.AppImage` and `CafePulse_Professional.AppImage` dynamically.
 - **Unified Release Assets:** Bundled portable ZIP archives alongside built AppImages into a unified `exports/` artifact distribution on success.
+- **SHA-256 Download Integrity:** Added `generate_sha256.py` script and integrated it into both Windows local build (`build_installer.bat`) and Linux CI/CD (`build-linux.yml`) to automatically output `SHA256SUMS.txt`.
 
 ### Changed
 - **Final Root Merge [D-015 / D-019]:** Eliminated the `Project/` folder and merged all Python application code (`core/`, `modes/`, `ui/`, `main.py`) directly into the root directory alongside website assets. This resolves AI confusion and locks the directory structure.
-- **Beta Tester Form:** Updated the Beta Tester Google Form link in `beta.html`.
+- **Website Downloads:** Updated download commands on `download.html` (and localized versions) to use optimized PowerShell scripts (`$ProgressPreference = 'SilentlyContinue'`) and Linux flags (`-O`).
+- **Beta Tester Form:** Reverted custom FormSubmit integration and replaced it with a direct CTA to the official Google Form (`forms.gle/VPwQ3jRBySbCEvKX7`) to reduce technical debt and maintain ecosystem stability.
+- **Founder Release:** Updated `founder.html` pricing to Rp 299.000 and explicitly changed CTAs to 'Coming Soon' to enforce the delayed launch requirement (D-020).
+
 
 ### Fixed
 - **Terminal Flash (CREATE_NO_WINDOW):** Fixed the missing `subprocess.CREATE_NO_WINDOW` patch in `core/scanner/arp_scanner.py` that was lost during previous directory refactoring.

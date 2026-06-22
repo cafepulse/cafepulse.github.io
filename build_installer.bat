@@ -42,11 +42,11 @@ for %%P in (
     "%ProgramFiles(x86)%\Inno Setup 5\ISCC.exe"
     "%ProgramFiles%\Inno Setup 5\ISCC.exe"
 ) do (
-    if exist "%%~P" set ISCC_PATH="%%~P"
+    if exist "%%~P" set ISCC_PATH=%%~P
 )
 
-if "%ISCC_PATH%"=="" (
-    echo [ERROR] Inno Setup compiler (ISCC.exe) was not found on your system.
+if not defined ISCC_PATH (
+    echo [ERROR] Inno Setup compiler ISCC.exe was not found on your system.
     echo.
     echo To build the installer:
     echo 1. Download and install Inno Setup 6 from: https://jrsoftware.org/isdl.php
@@ -58,12 +58,12 @@ if "%ISCC_PATH%"=="" (
 
 echo [INFO] Inno Setup compiler found at: %ISCC_PATH%
 echo [INFO] Running installer compilation for FREE EDITION...
-%ISCC_PATH% "installer\free\CafePulse_Free_Setup.iss"
+"%ISCC_PATH%" "installer\free\CafePulse_Free_Setup.iss"
 set FREE_STATUS=%ERRORLEVEL%
 
 echo.
 echo [INFO] Running installer compilation for PROFESSIONAL EDITION...
-%ISCC_PATH% "installer\professional\CafePulse_Professional_Setup.iss"
+"%ISCC_PATH%" "installer\professional\CafePulse_Professional_Setup.iss"
 set PRO_STATUS=%ERRORLEVEL%
 
 echo.
@@ -81,6 +81,10 @@ if %FREE_STATUS% equ 0 (
     echo [ERROR] Installer compilation failed!
 )
 echo ==================================================
+
+echo.
+echo [INFO] Generating SHA-256 Checksums...
+python generate_sha256.py
 
 echo.
 pause

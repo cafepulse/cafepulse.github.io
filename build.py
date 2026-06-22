@@ -127,13 +127,13 @@ def prepare_dist_folder(dist_name: str, is_pro: bool):
 def create_zip(dist_name: str):
     print(f"[5/6] Zipping {dist_name}...")
     source_dir = PROJECT_ROOT / "build_output" / dist_name
-    export_dir = PROJECT_ROOT.parent / "exports"
-    export_dir.mkdir(exist_ok=True)
+    export_dir = PROJECT_ROOT / "exports"
+    export_dir.mkdir(parents=True, exist_ok=True)
     
-    zip_path = export_dir / dist_name
+    zip_path = export_dir / f"{dist_name}.zip"
     # make_archive appends .zip automatically
-    shutil.make_archive(str(zip_path), 'zip', source_dir)
-    print(f"      Created: {zip_path}.zip")
+    shutil.make_archive(str(zip_path).replace('.zip', ''), 'zip', source_dir)
+    print(f"      Created: {zip_path}")
 
 def main():
     print("=== CafePulse Build System ===")
@@ -154,7 +154,7 @@ def main():
     create_zip("CafePulse_Professional_Portable")
     
     print("[6/6] Build Complete!")
-    print(f"Distribution files are located in: {PROJECT_ROOT.parent / 'exports'}")
+    print(f"Distribution files are located in: {PROJECT_ROOT / 'exports'}")
 
 if __name__ == "__main__":
     main()

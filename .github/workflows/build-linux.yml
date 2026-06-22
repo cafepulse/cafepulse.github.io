@@ -137,6 +137,10 @@ jobs:
         # 5. Build AppImage
         $APPIMAGETOOL_PATH AppDir_Pro exports/CafePulse_Professional.AppImage
 
+    - name: Generate SHA-256 Checksums
+      run: |
+        python generate_sha256.py
+
     - name: List Compiled Distributions
       run: |
         ls -la exports/
