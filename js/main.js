@@ -216,7 +216,9 @@ function initMarkdownLoader() {
         'known_issues': './docs/known_issues.md',
         'product_overview': './docs/product/product_overview.md',
         'editions_comparison': './docs/product/editions_comparison.md',
-        'pricing_and_licensing': './docs/pricing_and_licensing.md'
+        'pricing_and_licensing': './docs/pricing_and_licensing.md',
+        'bug_reporting_guide': './docs/bug_reporting_guide.md',
+        'beta_tester_program': './docs/beta_tester_program.md'
     };
 
     const urlParams = new URLSearchParams(window.location.search);

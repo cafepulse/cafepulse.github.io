@@ -76,15 +76,7 @@
     <!-- Content Sections -->
     <section style="background-color: var(--bg-secondary); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
         <div class="container">
-            <div class="grid-3">
-                <div class="card">
-                    <h3 class="card-title">Release Channels</h3>
-                    <p class="card-text" style="margin-top: 0.5rem;">
-                        <strong>Alpha Branch:</strong> Weekly builds with experimental features. Recommended only for test rigs.<br><br>
-                        <strong>Beta Branch:</strong> Monthly releases undergoing final stability checks. Suitable for regular network audits.
-                    </p>
-                </div>
-                
+            <div class="grid-2">
                 <div class="card">
                     <h3 class="card-title">Reporting Guidelines</h3>
                     <p class="card-text" style="margin-top: 0.5rem; font-size: 0.9rem;">
@@ -119,7 +111,38 @@
                 <p style="margin-bottom: 2rem; color: var(--text-primary);">
                     We are currently accepting Beta Tester registrations and Bug Reports through our official Google Form. Please click the button below to proceed.
                 </p>
-                <a href="https://forms.gle/VPwQ3jRBySbCEvKX7" target="_blank" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">Open Beta Tester Form</a>
+                <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://forms.gle/VPwQ3jRBySbCEvKX7" target="_blank" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">Open Beta Tester Form</a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=cafepulse.network@gmail.com" target="_blank" class="btn btn-secondary" style="font-size: 1.1rem; padding: 1rem 2rem;">Report Bug (Gmail)</a>
+                    <button type="button" class="btn btn-secondary copy-email-btn" style="font-size: 1.1rem; padding: 1rem 2rem;" data-email="cafepulse.network@gmail.com">Copy Email</button>
+                    <div class="copy-confirm" style="color: var(--color-success); font-size: 0.85rem; display: none; width: 100%;">Email address copied.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registered Beta Testers -->
+    <section style="background-color: var(--bg-primary); padding: 4rem 0;">
+        <div class="container" style="max-width: 800px; margin: 0 auto;">
+            <div class="section-header" style="margin-bottom: 2rem;">
+                <h2 class="section-title">Registered Beta Testers</h2>
+                <p class="section-subtitle">A big thank you to our early adopters who help shape CafePulse.</p>
+            </div>
+            <div style="overflow-x: auto; border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+                <table style="width: 100%; border-collapse: collapse; text-align: left; background-color: var(--bg-secondary);">
+                    <thead>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <th style="padding: 1rem; font-weight: 600;">Name / Handle</th>
+                            <th style="padding: 1rem; font-weight: 600;">Status</th>
+                            <th style="padding: 1rem; font-weight: 600;">Joined Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="3" style="padding: 2rem; text-align: center; color: var(--text-secondary);">Currently no active beta testers registered.</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
