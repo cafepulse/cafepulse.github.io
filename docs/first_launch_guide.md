@@ -46,7 +46,10 @@ Atau, jika Anda menggunakan **New Terminal** di MikroTik, jalankan perintah beri
    - **API Port:** Isi `8728` (untuk API biasa) atau `8729` (untuk API terenkripsi SSL).
    - **Username & Password:** Masukkan kredensial admin/user khusus MikroTik Anda.
 4. Klik **"Test Connection"** untuk memverifikasi.
-5. Klik **"Save Profile"**. CafePulse akan enkripsi kredensial Anda di dalam *Secure Local Vault* yang terikat dengan PC Anda.
+   - *Jika sukses:* Indikator akan berubah menjadi hijau ("Connection Established").
+   - *Jika gagal (Timeout):* Periksa kembali apakah alamat IP benar dan firewall Windows tidak memblokir aplikasi.
+   - *Jika gagal (Auth Error):* Periksa apakah *Username/Password* Anda benar dan memiliki izin `api`.
+5. Klik **"Save Profile"**. CafePulse akan mengenkripsi kredensial Anda menggunakan algoritma AES-256 dan menyimpannya di dalam *Secure Local Vault* (`cafepulse.db`) yang secara persisten terikat dengan PC Anda. Kredensial tidak dapat dibaca meskipun file disalin ke PC lain tanpa kunci dekripsi Master OS Anda.
 
 ---
 

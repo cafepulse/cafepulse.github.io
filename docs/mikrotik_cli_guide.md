@@ -75,4 +75,42 @@ Memastikan layanan Hotspot MikroTik Anda benar-benar berjalan dan menampung *act
 /ip hotspot active print
 ```
 
-Dengan perintah-perintah CLI (Terminal) di atas, Anda dapat melakukan inisialisasi lingkungan pengujian untuk CafePulse sepenuhnya melalui *console* (SSH/Telnet) atau layar terminal Virtual Machine tanpa perlu menyentuh antarmuka GUI Winbox sama sekali.
+## 4. Keamanan Lanjutan (API-SSL Certificates)
+
+Jika Anda memutuskan menggunakan `api-ssl` (Port 8729), router MikroTik Anda harus memiliki sertifikat yang valid. Jika Anda belum memilikinya, Anda dapat men- *generate* sertifikat *Self-Signed* langsung dari CLI.
+
+**Membuat Sertifikat Self-Signed untuk API:**
+```routeros
+/certificate add name=CafePulse_Cert common-name=CafePulse_Cert days-valid=3650 key-usage=key-cert-sign,tls-server
+/certificate sign CafePulse_Cert
+```
+
+**Memasang Sertifikat ke Layanan API-SSL:**
+```routeros
+/ip service set api-ssl certificate=CafePulse_Cert
+```
+
+## 5. Analisis Log Autentikasi (System Logs)
+
+Jika CafePulse berulang kali memunculkan pesan *Authentication Error*, Anda dapat memantau log sistem MikroTik untuk melihat alasan spesifik penolakan koneksi (apakah salah sandi atau IP diblokir).
+
+**Melihat Log Login Terakhir:**
+```routeros
+/log print where message~"login failure" or message~"api"
+```
+
+## 6. Manajemen Klien Darurat (Emergency Kick)
+
+Meski CafePulse menyediakan tombol *Kick* di antarmukanya, Anda juga bisa menendang (*disconnect*) pengguna *Hotspot* secara manual melalui CLI jika aplikasi sedang tidak aktif.
+
+**Menghapus Pengguna Aktif dari Hotspot (berdasarkan User):**
+```routeros
+/ip hotspot active remove [find user="nama_pengguna"]
+```
+
+**Menghapus Pengguna berdasarkan IP Address:**
+```routeros
+/ip hotspot active remove [find address="10.5.50.25"]
+```
+
+Dengan menguasai perintah-perintah CLI (Terminal) di atas, Anda dapat melakukan inisialisasi lingkungan pengujian, mengamankan jalur komunikasi, serta men- *debug* perilaku koneksi CafePulse sepenuhnya melalui *console* (SSH/Telnet) atau layar terminal Virtual Machine tanpa perlu menyentuh antarmuka GUI Winbox sama sekali.
