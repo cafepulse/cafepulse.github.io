@@ -227,3 +227,107 @@
 *   **Alternatives Rejected:** Menggunakan service FormSubmit secara langsung. Ditolak karena batasan ukuran file log dan ketergantungan email aktivasi eksternal.
 *   **Impact:** Alur pendaftaran dan pelaporan bug menjadi sangat stabil, mudah dikelola secara manual oleh developer via spreadsheet Google Forms, dan bebas dari overhead server side.
 
+---
+
+## [D-022] Inisiasi Discovery Fase Proposal Kolaborasi NanangMrk
+
+*   **Date:** 2026-06-24
+*   **Decision:** Menetapkan dokumen Proposal Project State (`PROPOSAL_STATE_NANANGMRK.md`) sebagai Single Source of Truth (SSOT) sebelum menyusun draft proposal, email, atau materi pemasaran kepada NanangMrk.
+*   **Reason:** Memastikan seluruh materi penjangkauan (*outreach*) didasarkan pada realitas teknis CafePulse (local-first, one-time purchase) dan bebas dari asumsi tidak terverifikasi (*UNKNOWN*). Menghindari risiko salah penempatan (*positioning*) serta mengamankan kredibilitas produk di mata tokoh edukasi MikroTik Indonesia.
+*   **Alternatives Rejected:** Langsung menghubungi NanangMrk melalui pesan ulasan sponsor transaksional tanpa penyusunan State (ditolak karena berpotensi merusak brand CafePulse, tidak menghargai kepakaran subjek, dan rentan terhadap penolakan akibat kekhawatiran keamanan API RouterOS).
+*   **Impact:** Menghasilkan strategi komunikasi berbasis *Advisor Approach* yang terhormat, berorientasi nilai jangka panjang, serta memiliki mitigasi risiko keamanan dan pemosisian produk yang matang.
+
+---
+
+## [D-023] Penundaan Sementara Penjangkauan NanangMrk (NO-GO Assessment)
+
+*   **Date:** 2026-06-24
+*   **Decision:** Menangguhkan pengiriman proposal kolaborasi aktif kepada NanangMrk (*NO-GO*) sampai selesainya Closed Beta Campaign (v0.9) dan termitigasinya isu peringatan Windows Defender SmartScreen pada biner instalasi `.exe` CafePulse.
+*   **Reason:** Mencegah risiko rusaknya reputasi keamanan dan kredibilitas produk akibat deteksi "untrusted software" di lab pengujian tokoh influencer utama, serta memastikan stabilitas multi-threading biner desktop sebelum diuji secara eksternal.
+*   **Alternatives Rejected:**
+    *   *Go (Melanjutkan Outreach Segera):* Ditolak karena terlalu berbahaya bagi reputasi CafePulse. Peringatan UAC SmartScreen atau bug crash tak terduga pada router berbeban tinggi milik NanangMrk dapat memicu sentimen negatif publik secara permanen.
+*   **Impact:** Memberikan ruang bagi developer untuk mematangkan biner melalui Closed Beta 10 tester awal dan menyiapkan dokumentasi pendukung sebelum inisiasi penjangkauan dilakukan.
+
+---
+
+## [D-024] Status CONDITIONAL GO untuk Advisor Discovery Outreach
+
+*   **Date:** 2026-06-24
+*   **Decision:** Mengubah status kelayakan penjangkauan inisiasi awal privat (*Advisor Discovery Outreach*) dari *NO-GO* menjadi *CONDITIONAL GO*, dengan syarat fokus 100% pada permintaan evaluasi konseptual/opini ahli secara privat, transparan menjelaskan SmartScreen & status Beta, serta menyediakan instruksi aman RouterOS API read-only.
+*   **Reason:** Audit kritis menunjukkan bahwa alasan penangguhan sebelumnya (SmartScreen, closed beta status, visual mockups) adalah blocker bagi peluncuran komersial publik (*Public Launch/Review*), tetapi bukan blocker bagi diskusi visi privat dengan penasihat teknis. Ahli jaringan senior memahami false-positives SmartScreen pada Python non-signed, dan justru menyukai pemberian masukan di tingkat konseptual awal sebelum kode difinalisasi.
+*   **Alternatives Rejected:**
+    *   *Mempertahankan NO-GO Mutlak:* Ditolak karena menyebabkan kehilangan momentumClosed Beta dan melewatkan kesempatan umpan balik kritis di fase desain arsitektur yang krusial.
+    *   *GO Tanpa Syarat (Unconditional GO):* Ditolak karena tanpa transparansi masalah SmartScreen dan RouterOS API, subjek berisiko menolak akibat kekhawatiran keamanan kredensial.
+*   **Impact:** Mengaktifkan inisiasi kontak privat dengan NanangMrk di bawah kerangka *Advisor Program* tepercaya, mempercepat umpan balik arsitektur, dan mempersiapkan evolusi kemitraan secara organik.
+
+---
+
+## [D-025] Pengesahan Revisi Arsitektur Kemitraan & Kelayakan Desain Proposal (CONDITIONAL READY)
+
+*   **Date:** 2026-06-24
+*   **Decision:** Mengesahkan revisi akhir arsitektur kemitraan (Penerapan Lisensi Opsi C 5-Tahun/Lifetime, Pengakuan Technical Advisor resmi, penambahan mitigasi *Perceived Lack of Differentiation*), memetakan logika penawaran nilai (*Why Should NanangMrk Care?*), dan menetapkan kesiapan masuk ke tahap *Proposal Design Phase* (Skor Kesiapan 8.5/10 - Ready for Proposal Design, outreach ditunda).
+*   **Reason:** Model lisensi Opsi C memberikan insentif kontribusi bertahap yang adil (*Value-Creation Lock*). Pengakuan *Technical Advisor* menyelaraskan reputasi subjek tanpa membebani dengan operasional harian. Perancangan proposal dapat dimulai secara terisolasi, sementara pengiriman pesan outreach tetap ditangguhkan hingga biner stabil dan masalah SmartScreen diselesaikan.
+*   **Alternatives Rejected:**
+    *   *Membiarkan Lifetime License Langsung di Awal (Option B):* Ditolak karena melewatkan pengungkit insentif feedback aktif.
+    *   *Melakukan Outreach Aktif Langsung:* Ditolak karena blocker teknis SmartScreen belum dimitigasi di sisi kode.
+*   **Impact:** Menyelesaikan fase Discovery & State Definition proyek kemitraan secara penuh, menetapkan parameter nilai penawaran, dan memberikan lampu hijau untuk memulai perancangan dokumen proposal (*Proposal Design Phase*).
+
+---
+
+## [D-026] Penyusunan Paket Email Outreach Tahap Eksekusi (NANANGMRK_EMAIL_OUTREACH_PACKAGE_V1.md)
+
+*   **Date:** 2026-06-24
+*   **Decision:** Menyelesaikan penyusunan paket email penjangkauan (pilihan 10 subjek, draf email pertama, draf follow-up 7 & 14 hari, strategi lampiran gambar, dan checklist kesiapan) serta merekomendasikan keputusan akhir *SEND AFTER MINOR FIXES* untuk dieksekusi dalam 24 jam ke depan.
+*   **Reason:** Mengubah dokumen strategi tingkat tinggi menjadi artefak operasional siap pakai oleh pengembang. Penundaan inisiasi email murni disebabkan oleh faktor kesiapan logistik minor (seperti unggah biner beta aktif untuk download link, kompilasi proposal ke PDF, capture screenshot, dan email signature) yang bernilai operasional, bukan masalah konseptual.
+*   **Alternatives Rejected:**
+    *   *Send Now (Kirim Sekarang):* Ditolak karena link unduhan belum aktif dan screenshot belum siap, yang akan merusak impresi pertama subjek jika ia langsung menguji.
+    *   *Do Not Send (Jangan Dikirim):* Ditolak karena seluruh arsitektur nilai penawaran telah matang dan hanya menyisakan penyempurnaan logistik minor.
+*   **Impact:** Menyediakan draf komunikasi email final yang terstruktur, sopan, dan transparan, siap dideploy segera setelah prasyarat logistik minor terpenuhi.
+
+---
+
+## [D-027] Hasil Audit Kesiapan Aset Penjangkauan & Optimasi Aset Eksisting
+
+*   **Date:** 2026-06-24
+*   **Decision:** Mengesahkan pemanfaatan 3 berkas gambar antarmuka PyQt6 eksisting (`dashboard_overview.png`, `hotspot_generator.png`, dan `license_manager.png` beresolusi 1600x1000) dan biner installer lokal di direktori `exports/` tanpa membuat gambar baru, serta menyetujui langkah konversi proposal markdown ke PDF instan (Print to PDF via browser/VS Code).
+*   **Reason:** Mengurangi pengulangan kerja (*waste reduction*) dan mempercepat inisiasi penjangkauan. Berkas screenshot yang ditemukan memiliki kualitas dan aspek visual yang 100% matang dan representatif bagi materi email. Installer lokal juga sudah lengkap, menyisakan kebutuhan *minor fixes* untuk unggah biner secara online ke GitHub Releases.
+*   **Alternatives Rejected:**
+    *   *Membuat Screenshot Baru dari Awal:* Ditolak karena memakan waktu dan tidak memberikan peningkatan nilai visual yang signifikan dibanding aset berkualitas tinggi yang sudah tersedia di folder `assets/screenshots/`.
+*   **Impact:** Status kesiapan screenshot bergeser dari *NOT READY* menjadi *READY*, memangkas estimasi waktu persiapan eksekusi kirim menjadi kurang dari 30 menit (tersisa hanya konversi proposal ke PDF dan pengunggahan biner online).
+
+---
+
+## [D-028] Finalisasi Review Eksekusi & Penyesuaian Strategi Penjangkauan NanangMrk
+
+*   **Date:** 2026-06-24
+*   **Decision:** Mengesahkan penyesuaian akhir paket penjangkauan: (1) Mengganti `license_manager.png` dengan `network_scan.png` pada Top 3 Screenshot email untuk menonjolkan utilitas teknis jaringan, (2) Memilih subjek email personal `"Saya Sedang Membangun CafePulse dan Ingin Meminta Pendapat Mas Nanang"` untuk human touch tertinggi, (3) Menerbitkan `GITHUB_RELEASE_CHECKLIST.md` untuk sinkronisasi case-sensitive unduhan online, (4) Menetapkan nama proposal PDF resmi `CafePulse_Advisor_Proposal_NanangMrk_v1.0.pdf`, dan (5) Menetapkan rekomendasi akhir *SEND AFTER MINOR FIXES*.
+*   **Reason:** Audit kritis menunjukkan bahwa panel lisensi kurang memicu minat teknis di email pertama dibanding panel pemindaian subnet ARP. Subjek email dengan human touch terbukti meminimalkan filter spam personal. Dokumen checklist rilis menjamin kecocokan penulisan link unduhan di website GitHub Pages.
+*   **Alternatives Rejected:**
+    *   *Menggunakan license_manager.png di email pertama:* Ditolak karena kurang menunjukkan aktivitas rekayasa jaringan yang nyata di hadapan subjek.
+*   **Impact:** Seluruh kesiapan logistik terstruktur rapi, memberikan kepastian eksekusi pengiriman email kepada NanangMrk dalam waktu kurang dari 24 jam dengan estimasi pengerjaan minor selama 20 menit.
+
+---
+
+## [D-029] Penyelesaian Sprint Final Eksekusi & Penerbitan Aset PDF Resmi
+
+*   **Date:** 2026-06-24
+*   **Decision:** Mengesahkan eksekusi pembuatan proposal PDF resmi (`CafePulse_Advisor_Proposal_NanangMrk_v1.0.pdf` berukuran ~49 KB) melalui otomasi skrip PyQt6 `export_pdf.py` secara lokal, melakukan validasi case-sensitive link unduhan pada `download.html`, dan menyepakati pengalihan Top 3 Screenshot email ke: `dashboard_overview.png`, `hotspot_generator.png`, dan `network_scan.png`.
+*   **Reason:** Menyelesaikan gap teknis terakhir untuk status *SEND NOW*. Biner lokal terbukti lengkap dan siap diunggah secara online. Tautan unduhan di website telah diverifikasi 100% kompatibel dengan aset rilis.
+*   **Alternatives Rejected:**
+    *   *Mengekspor PDF Menggunakan Tools Eksternal Online:* Ditolak karena melanggar prinsip kepatuhan offline/local-first proyek. Otomasi skrip PyQt6 lokal menjamin privasi proposal 100%.
+*   **Impact:** Status operasional dipastikan matang, hanya menyisakan tugas deployment *minor fixes* (pengunggahan berkas online ke GitHub Releases oleh pengembang) sebelum outreach email pertama dikirimkan hari ini.
+
+---
+
+## [D-030] Finalisasi Eksekusi Penjangkauan dan Pembersihan Identitas
+
+*   **Date:** 2026-06-25
+*   **Decision:** Mengganti secara menyeluruh istilah "Winbox Companion" menjadi "Local-First MikroTik Network Operations Platform" di seluruh draf komunikasi email, memperbarui referensi nama lampiran PDF proposal menjadi `CafePulse_Real_World_Validation_Proposal.pdf`, memperbaiki *dead link* (`youbellkey.github.io` ke `cafepulse.github.io`), dan menetapkan status akhir menjadi *SEND NOW*.
+*   **Reason:** Penyelarasan SSOT CafePulse sebagai entitas platform independen telah tercapai. Keberadaan *dead link* berisiko merusak tingkat kepercayaan dari *advisor* teknis. Audit rilis GitHub v1.1.0-alpha.1 telah memverifikasi seluruh 6 tautan biner telah tayang secara riil.
+*   **Alternatives Rejected:**
+    *   *Mempertahankan "Winbox Companion" karena faktor Curiosity:* Ditolak karena mendegradasi posisi *branding* CafePulse yang kini telah berevolusi dari sekadar utilitas pendamping menjadi *Network Operations Platform* utuh.
+*   **Impact:** Keseluruhan paket *Outreach* menjadi sempurna dan 100% siap (*SEND NOW*) untuk dieksekusi secara manual ke email NanangMrk.
+
+
+
+

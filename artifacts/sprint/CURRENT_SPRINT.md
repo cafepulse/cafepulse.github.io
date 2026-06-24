@@ -37,6 +37,11 @@ Memastikan seorang Founder User yang belum pernah melihat CafePulse sebelumnya d
   - [x] Finalisasi struktur direktori: Flatten `Project/` ke dalam root repository (D-019).
   - [x] Sinkronisasi ulang bug fix (Terminal Flash & Zombie Thread) ke dalam direktori root.
   - [x] Update `build.py` & `.github/workflows` agar mendukung root-based execution.
+- [x] **Advisor Outreach Finalization (Sprint 8.5)**
+  - [x] Audit dan rilis tautan unduhan biner (GitHub Releases).
+  - [x] Kompilasi & Rename PDF proposal `CafePulse_Real_World_Validation_Proposal.pdf`.
+  - [x] Pembersihan *dead links* dan penyelarasan identitas (*Local-First MikroTik Network Operations Platform*).
+  - [x] Penetapan Final Status: **SEND NOW**.
 
 ---
 
@@ -44,7 +49,7 @@ Memastikan seorang Founder User yang belum pernah melihat CafePulse sebelumnya d
 
 | In Progress | Blockers | Next Action |
 |---|---|---|
-| *Tidak ada* | *Tidak ada* | Seluruh panduan, template, audit rilis, dan revert pendaftaran telah diselesaikan dan dirilis. |
+| *Tidak ada* | *Tidak ada* | Seluruh siklus peluncuran awal dan paket penjangkauan *advisor* telah selesai sepenuhnya (SEND NOW). |
 
 ---
 

@@ -150,6 +150,16 @@
 | `FEATURE_SPEC_PROFESSIONAL.md` | `artifacts/specifications/FEATURE_SPEC_PROFESSIONAL.md` | Single Instance | - |
 | `CURRENT_SPRINT.md` | `artifacts/sprint/CURRENT_SPRINT.md` | Single Instance | - |
 | `PROJECT_STATE.md` | `artifacts/state/PROJECT_STATE.md` | Single Instance | - |
+| `PROPOSAL_STATE_NANANGMRK.md` | `artifacts/state/PROPOSAL_STATE_NANANGMRK.md` | Single Instance | - |
+| `PROPOSAL_DISCOVERY_REVIEW.md` | `artifacts/state/PROPOSAL_DISCOVERY_REVIEW.md` | Single Instance | - |
+| `PARTNERSHIP_ARCHITECTURE_NANANGMRK.md` | `artifacts/state/PARTNERSHIP_ARCHITECTURE_NANANGMRK.md` | Single Instance | - |
+| `NANANGMRK_ADVISOR_PROPOSAL_V1.md` | `artifacts/state/NANANGMRK_ADVISOR_PROPOSAL_V1.md` | Single Instance | - |
+| `NANANGMRK_ADVISOR_PROPOSAL_V2.md` | `artifacts/state/NANANGMRK_ADVISOR_PROPOSAL_V2.md` | Single Instance | - |
+| `OUTREACH_ASSET_READINESS_REPORT.md` | `artifacts/state/OUTREACH_ASSET_READINESS_REPORT.md` | Single Instance | - |
+| `GITHUB_RELEASE_CHECKLIST.md` | `artifacts/state/GITHUB_RELEASE_CHECKLIST.md` | Single Instance | - |
+| `walkthrough_nanangmrk.md` | `artifacts/state/walkthrough_nanangmrk.md` | Single Instance | - |
+| `visual_pdf_audit.md` | `artifacts/state/visual_pdf_audit.md` | Single Instance | - |
+| `PROPOSAL_ALIGNMENT_AUDIT.md` | `artifacts/state/PROPOSAL_ALIGNMENT_AUDIT.md` | Single Instance | - |
 | `community_form_strategy.md` | `artifacts/strategy_and_marketing/community_form_strategy.md` | Single Instance | - |
 | `community_growth_strategy.md` | `artifacts/strategy_and_marketing/community_growth_strategy.md` | Single Instance | - |
 | `first_100_users_strategy.md` | `artifacts/strategy_and_marketing/first_100_users_strategy.md` | Single Instance | - |
