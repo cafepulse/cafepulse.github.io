@@ -202,20 +202,20 @@ function initMarkdownLoader() {
 
     // Map URL queries to repository docs paths
     const docMapping = {
-        'privacy_policy': './docs/legal/privacy_policy.md',
-        'terms_of_service': './docs/legal/terms_of_service.md',
-        'eula': './docs/legal/eula.md',
-        'refund_policy': './docs/legal/refund_policy.md',
-        'trademark_notes': './docs/legal/trademark_notes.md',
+        'privacy_policy': './docs/privacy_policy.md',
+        'terms_of_service': './docs/terms_of_service.md',
+        'eula': './docs/eula.md',
+        'refund_policy': './docs/refund_policy.md',
+        'trademark_notes': './docs/trademark_notes.md',
         'routeros_config': './docs/routeros_config.md',
-        'user_manual_structure': './docs/product/user_manual_structure.md',
+        'user_manual_structure': './docs/user_manual_structure.md',
         'installation_guide': './docs/installation_guide.md',
         'first_launch_guide': './docs/first_launch_guide.md',
         'system_requirements': './docs/system_requirements.md',
         'changelog': './docs/changelog.md',
         'known_issues': './docs/known_issues.md',
-        'product_overview': './docs/product/product_overview.md',
-        'editions_comparison': './docs/product/editions_comparison.md',
+        'product_overview': './docs/product_overview.md',
+        'editions_comparison': './docs/editions_comparison.md',
         'pricing_and_licensing': './docs/pricing_and_licensing.md',
         'bug_reporting_guide': './docs/bug_reporting_guide.md',
         'beta_tester_program': './docs/beta_tester_program.md'
