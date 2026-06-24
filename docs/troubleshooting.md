@@ -20,6 +20,7 @@ Jika Anda menemui masalah saat menggunakan CafePulse, silakan rujuk ke daftar so
 **Gejala:** Saat memuat daftar perangkat aktif atau memuat halaman *Dashboard*, CafePulse terhenti lama atau muncul galat batas waktu (Timeout).
 * **CPU Router Tinggi:** Periksa beban kerja CPU Router MikroTik Anda via Winbox. Jika penggunaan mencapai 100%, router akan mengabaikan respons API.
 * **Layanan API Nonaktif:** Buka Winbox, pergi ke `IP > Services`. Pastikan layanan `api` (Port 8728) atau `api-ssl` (Port 8729) berstatus *Enabled* (tidak berwarna abu-abu/ditandai silang).
+  - *Verifikasi via CLI:* Ketik `/ip service print` di New Terminal dan pastikan tidak ada tanda `X` (disabled) di sebelah layanan `api`.
 * **Pembatasan Port/Alamat:** Jika Anda mengkonfigurasi kolom `Available From` di `IP > Services`, pastikan IP PC Anda saat ini diizinkan untuk mengaksesnya.
 
 ### Masalah 4: Data Hotspot / Pengguna Tidak Tampil

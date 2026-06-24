@@ -31,6 +31,12 @@ Pastikan service API di router MikroTik Anda telah diaktifkan:
 2. Pastikan service **api** (port default `8728`) atau **api-ssl** (port default `8729`) dalam status **Enabled** (aktif).
 3. Buat user group khusus di menu **System** ➔ **Users** yang memiliki izin (*read* dan *write*) untuk API.
 
+Atau, jika Anda menggunakan **New Terminal** di MikroTik, jalankan perintah berikut untuk mengeksekusinya secara cepat:
+```routeros
+/ip service enable api
+/user group add name=api_group policy=read,write,api
+```
+
 ### 2.2 Membuat Profil Koneksi di Aplikasi
 1. Luncurkan CafePulse, lalu klik ikon **Settings** (Pengaturan) atau tab **Connections**.
 2. Klik tombol **"Add New Connection"**.
