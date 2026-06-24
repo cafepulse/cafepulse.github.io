@@ -1,5 +1,8 @@
 # RouterOS API Setup
 
+> [!TIP]
+> Lebih nyaman dengan baris perintah (Terminal/SSH)? Kami telah menyediakan panduan perintah lengkap untuk seluruh langkah di bawah ini pada halaman [MikroTik CLI Guide](./mikrotik_cli_guide.md).
+
 Agar CafePulse dapat berkomunikasi dengan router MikroTik Anda dan memantau status jaringan, Anda harus mengaktifkan layanan API (Application Programming Interface) di dalam RouterOS.
 
 ## 1. Mengaktifkan Layanan API
