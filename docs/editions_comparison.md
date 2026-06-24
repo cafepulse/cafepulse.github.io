@@ -4,15 +4,14 @@ CafePulse tersedia dalam dua edisi: **Free Edition** (Gratis) dan **Professional
 
 | Fitur | Free Edition | Professional Edition |
 | :--- | :--- | :--- |
-| **Harga** | Gratis (Selamanya) | Rp 499.000 (Sekali Beli) |
-| **Koneksi Router** | Maks. 1 Router Profile | **Tidak Terbatas** (Unlimited) |
+| **Harga** | Gratis | Rp 499.000 (Sekali Beli) |
+| **Koneksi Router** | Terbatas [TBD] | **Tidak Terbatas** |
 | **Dashboard & Monitoring** | Ya | Ya |
 | **Manajemen Pengguna Aktif** | Ya | Ya |
-| **Generate Voucher** | Maks. 10 / Batch | **Ribuan / Batch** |
-| **Kustomisasi Cetak Voucher** | Desain Dasar | **Template Kustom (HTML/CSS)** |
-| **Ekspor Data** | Terbatas (CSV) | **Penuh (CSV, PDF, Excel)** |
+| **Generate Voucher** | Terbatas [TBD] | **Tidak Terbatas** |
+| **Kustomisasi Cetak Voucher** | Desain Dasar | **Template Kustom** |
+| **Ekspor Data** | [TBD] | **Penuh (CSV, PDF, Excel)** |
 | **Multi-Threading Polling** | Standard Polling | **High-Performance (WAL Mode)** |
-| **Prioritas Dukungan** | Komunitas / Forum | **Prioritas (Email/Tiket)** |
 | **Pembaruan Fitur** | Minor Updates | **Semua Pembaruan Mayor & Minor** |
 
 ### Free Edition

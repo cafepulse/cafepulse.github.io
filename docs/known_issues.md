@@ -10,10 +10,6 @@ Dokumen ini merangkum isu-isu perangkat lunak yang telah diketahui (sedang dalam
 **Deskripsi:** Jika OS Windows Anda *crash* atau aplikasi ditutup secara paksa via Task Manager, pada peluncuran berikutnya aplikasi mungkin meminta *booting* ke Safe Mode.
 **Workaround:** Klik **"No, boot normally"** jika Anda yakin *database* tidak korup. Tim sedang mengembangkan mekanisme penutupan anggun (*graceful shutdown*) yang lebih baik pada *thread* latar belakang.
 
-### 2. Rendering UI Mengecil pada Monitor 4K
-**Deskripsi:** Pada beberapa instalasi Windows 10/11 dengan layar beresolusi 4K (DPI di atas 150%), font di tabel *Dashboard* terlihat sangat kecil.
-**Workaround:** Klik kanan *shortcut* CafePulse -> *Properties* -> *Compatibility* -> *Change high DPI settings* -> Centang *Override high DPI scaling behavior* (Pilih *System*).
-
 ---
 
 ## Frequently Asked Questions (FAQ)
