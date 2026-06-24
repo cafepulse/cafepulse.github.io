@@ -1856,10 +1856,10 @@ function switchPlatform(platform) {
     const labelBox = document.getElementById('terminal-label');
     if (codeBox && labelBox) {
         if (platform === 'windows') {
-            codeBox.innerText = '$ProgressPreference = \'SilentlyContinue\'; Invoke-WebRequest -Uri "https://github.com/cafepulse/cafepulse.github.io/releases/latest/download/CafePulse_Free_Setup.exe" -OutFile "CafePulse_Free_Setup.exe"; .\\CafePulse_Free_Setup.exe';
+            codeBox.innerText = '$ProgressPreference = \'SilentlyContinue\'; Invoke-WebRequest -Uri "https://github.com/cafepulse/cafepulse.github.io/releases/download/v1.1.0-alpha.1/CafePulse_Free_Setup.exe" -OutFile "CafePulse_Free_Setup.exe"; .\\CafePulse_Free_Setup.exe';
             labelBox.innerText = 'Windows PowerShell';
         } else {
-            codeBox.innerText = 'wget -O CafePulse_Free.AppImage "https://github.com/cafepulse/cafepulse.github.io/releases/latest/download/CafePulse_Free.AppImage" && chmod +x CafePulse_Free.AppImage && ./CafePulse_Free.AppImage';
+            codeBox.innerText = 'wget -O CafePulse_Free.AppImage "https://github.com/cafepulse/cafepulse.github.io/releases/download/v1.1.0-alpha.1/CafePulse_Free.AppImage" && chmod +x CafePulse_Free.AppImage && ./CafePulse_Free.AppImage';
             labelBox.innerText = 'Linux Terminal';
         }
     }
